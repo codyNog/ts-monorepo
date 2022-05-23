@@ -1,0 +1,7 @@
+packages:
+  - "packages/api/**"
+  - "packages/shared/**"
+  - "packages/service/**"
+  - "packages/web-app/**"
+  - "packages/admin-app/**"
+  - "packages/native-app/**"

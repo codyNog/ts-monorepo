@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["darwin", "native", "debian-openssl-1.1.x", "linux-musl"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 環境によって動かないことあり
+// generator erd {
+//  provider = "prisma-erd-generator"
+// }
+
+model User {
+  uid     String   @id @default(uuid())
+  name    String
+  posts   Post[]
+  profile Profile?
+}
+
+model Profile {
+  uid       String @id @default(uuid())
+  biography String
+  user      User   @relation(fields: [userUid], references: [uid], onDelete: Cascade, onUpdate: Cascade)
+  userUid   String @unique
+}
+
+model Post {
+  uid         String     @id @default(uuid())
+  title       String     @db.VarChar(200)
+  description String
+  published   Boolean    @default(true)
+  body        String
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [uid], onDelete: Cascade, onUpdate: Cascade)
+  categories  Category[]
+}
+
+model Category {
+  uid   String @id @default(uuid())
+  name  String @unique
+  posts Post[]
+}

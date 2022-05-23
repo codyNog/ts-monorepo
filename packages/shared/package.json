@@ -1,0 +1,60 @@
+{
+  "name": "@my/shared",
+  "version": "0.0.1",
+  "scripts": {
+    "aspida": "rm -rf front/libs/aspida/api/* && openapi2aspida",
+    "build-storybook": "build-storybook",
+    "interplay": "interplay build && interplay parse && interplay deploy",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "test": "vitest run --silent"
+  },
+  "dependencies": {
+    "@anatine/zod-mock": "3.1.1",
+    "@anatine/zod-openapi": "1.3.0",
+    "@aspida/axios": "1.9.1",
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "1.8.8",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "aspida": "1.9.1",
+    "axios": "0.27.2",
+    "chakra-react-select": "3.3.7",
+    "debounce": "^1.2.1",
+    "framer-motion": "^6.3.1",
+    "react": "^18.0.0",
+    "swr": "1.3.0",
+    "zod": "3.14.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@faker-js/faker": "^6.2.0",
+    "@interplay/cli": "^2.1.1",
+    "@interplay/cli-plugin-react": "^2.1.1",
+    "@storybook/addon-actions": "^6.5.3",
+    "@storybook/addon-controls": "^6.5.3",
+    "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/addon-interactions": "^6.5.3",
+    "@storybook/addon-links": "^6.5.3",
+    "@storybook/builder-vite": "^0.1.35",
+    "@storybook/client-api": "^6.5.3",
+    "@storybook/react": "6.5.3",
+    "@storybook/testing-library": "^0.0.11",
+    "@testing-library/react": "^13.2.0",
+    "@types/debounce": "^1.2.1",
+    "@types/node": "17.0.31",
+    "@types/react": "^18.0.8",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-loader": "^8.2.5",
+    "msw": "^0.39.2",
+    "openapi2aspida": "^0.19.0",
+    "path": "^0.12.7",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "ts-loader": "9.3.0",
+    "typescript": "^4.6.4",
+    "vitest": "^0.9.4"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}

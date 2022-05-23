@@ -1,0 +1,82 @@
+{
+  "Component template": {
+    "prefix": "component",
+    "body": [
+      "type Props = {",
+      "  // id: string",
+      "}",
+      "",
+      "export const ${TM_DIRECTORY/^.+\\/(.*)$/$1/} = ({}: Props): JSX.Element => {",
+      "  return ${3:(null$1)}",
+      "}",
+      ""
+    ]
+  },
+  "NextPage template": {
+    "prefix": "nextpage",
+    "body": [
+      "const Component = () => {",
+      "  return ${3:(null$1)}",
+      "}",
+      "",
+      "export default Component"
+    ]
+  },
+  "CustomHooks template": {
+    "prefix": "hooks",
+    "body": [
+      "import { useState, useCallback } from 'react';",
+      "",
+      "export const use${TM_DIRECTORY/^.+\\/(.*)$/$1/} = () => {",
+      "  const [state$1, setState$1] = useState('');",
+      "",
+      "  return { state$1, setState$1 };",
+      "};",
+    ]
+  },
+  "Storybook template": {
+    "prefix": "storybook",
+    "body": [
+      "import { ${TM_DIRECTORY/^.+\\/(.*)$/$1/} as Component } from '.';",
+      "",
+      "export default { title: 'atoms/${TM_DIRECTORY/^.+\\/(.*)$/$1/}' };",
+      "",
+      "export const ${TM_DIRECTORY/^.+\\/(.*)$/$1/} = Component" 
+    ],
+    "description": "Storybook template"
+  },
+  "Implement template":  {
+    "prefix": "impl",
+    "body": [
+      "import { ${TM_DIRECTORY/^.+\\/(.*)$/$1/} } from '@my/shared/entities/${TM_DIRECTORY/^.+\\/(.*)$/$1/}'",
+      "",
+      "const create = async (${TM_DIRECTORY/^.+\\/(.*)$/$1/}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}): Promise<${TM_DIRECTORY/^.+\\/(.*)$/$1/}> => {",
+      "  return ${TM_DIRECTORY/^.+\\/(.*)$/$1/};",
+      "};",
+      "",
+      "const getMany = async (): Promise<${TM_DIRECTORY/^.+\\/(.*)$/$1/}[]> => {",
+      "  return [];",
+      "};",
+      "",
+      "const get = async (uid: string): Promise<${TM_DIRECTORY/^.+\\/(.*)$/$1/}> => {",
+      "  return ${TM_DIRECTORY/^.+\\/(.*)$/$1/};",
+      "};",
+      "",
+      "const update = async (${TM_DIRECTORY/^.+\\/(.*)$/$1/}: ${TM_DIRECTORY/^.+\\/(.*)$/$1/}): Promise<${TM_DIRECTORY/^.+\\/(.*)$/$1/}> => {",
+      "  return ${TM_DIRECTORY/^.+\\/(.*)$/$1/};",
+      "};",
+      "",
+      "const delete${TM_DIRECTORY/^.+\\/(.*)$/$1/} = async (uid: string): Promise<void> => {",
+      "  return;",
+      "};",
+      "",
+      "export const ${TM_DIRECTORY/^.+\\/(.*)$/$1/}Impl = {",
+      "create,",
+      "getMany,",
+      "get,",
+      "update,",
+      "delete: delete${TM_DIRECTORY/^.+\\/(.*)$/$1/}",
+      "}"
+    ]
+  },
+}

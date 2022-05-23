@@ -1,0 +1,53 @@
+# Mac
+.DS_Store
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
+.idea
+*.iml
+
+# Terraform
+.terraform
+*tfstate*
+*gcloud-service-key*
+dist
+build
+imagedefinitions.json
+imagedefinitions.json.zip
+
+# key
+*.pem
+*.id_rsa*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+dist-ssr
+*.local
+
+# Editor directories and files
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# node
+.next
+node_modules*
+out
+.pnpm-store
+
+.env**

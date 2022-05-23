@@ -1,0 +1,53 @@
+{
+  "name": "ts-monorepo",
+  "version": "0.0.5",
+  "private": true,
+  "scripts": {
+    "aspida": "pnpm --filter=./packages/shared/** aspida",
+    "build:admin": "pnpm --filter=./packages/admin-app/** build",
+    "build:api": "pnpm --filter=./packages/api/** build",
+    "build:service": "pnpm --filter=./packages/service/** build",
+    "dev:admin": "pnpm --filter=./packages/admin-app/** dev",
+    "dev:all": "pnpm --filter=./** dev",
+    "dev:api": "pnpm --filter=./packages/api/** dev",
+    "dev:web": "pnpm --filter=./packages/web-app/** dev",
+    "format": "rome format .",
+    "preinstall": "npx only-allow pnpm",
+    "interplay:admin": "pnpm --filter=./packages/admin-app/** interplay",
+    "interplay:shared": "pnpm --filter=./packages/shared/** interplay",
+    "lint": "eslint ./packages/** --ext .jsx,.js,.ts,.tsx --quiet --ignore-path ./.gitignore",
+    "lint-fix": "eslint ./packages/** --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "pathpida": "pnpm --filter=./** pathpida",
+    "prepare": "husky install",
+    "prisma-gen": "pnpm ---filter=./packages/api/** prisma-gen",
+    "sort": "sort-package-json 'package.json' sort-package-json './packages/admin-app/package.json' sort-package-json './packages/api/package.json' sort-package-json './packages/shared/package.json' sort-package-json './packages/web-app/package.json'",
+    "storybook:admin": "pnpm --filter=./packages/admin-app/** storybook",
+    "storybook:shared": "pnpm --filter=./packages/shared/** storybook",
+    "test:admin": "pnpm --filter=./packages/admin-app/** test",
+    "test:service": "pnpm --filter=./packages/service/** test",
+    "test:shared": "pnpm --filter=./packages/shared/** test",
+    "update-dependencies": "ncu -u && ncu -u --packageFile ./packages/api/package.json && ncu -u --packageFile ./packages/service/package.json",
+    "update-dependencies-check": "ncu && ncu --packageFile ./packages/api/package.json && ncu -u --packageFile ./packages/service/package.json"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.22.0",
+    "@typescript-eslint/parser": "5.22.0",
+    "eslint": "^8.14.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "husky": "^7.0.4",
+    "npm-check-updates": "^12.5.11",
+    "rome": "^0.5.0-next",
+    "sort-package-json": "1.57.0"
+  },
+  "packageManager": "pnpm@7.0.0",
+  "engines": {
+    "node": "16.14.2",
+    "pnpm": "7.0.0"
+  }
+}
