@@ -17,6 +17,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@my/shared": "*",
+    "@web/ui": "*",
     "framer-motion": "^6",
     "jotai": "^1.6.7",
     "next": "12.1.6",

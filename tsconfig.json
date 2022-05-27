@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@my/shared/*": ["./packages/shared/*"]
+      "@my/shared/*": ["./packages/shared/*"],
+      "@web/ui/*": ["./packages/web-ui/*"],
     }
   }
 }
