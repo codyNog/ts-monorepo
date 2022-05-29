@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const withTM = require("next-transpile-modules")(["@my/shared"]);
+const withTM = require("next-transpile-modules")(["@my/shared", "@web/ui"]);
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: false,
 });

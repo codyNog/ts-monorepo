@@ -1,4 +1,4 @@
-import { Box } from "@my/shared/front/components/layouts";
+import { Box } from "@web/ui/components/layouts";
 
 const NotFoundPage = () => {
   return <Box>404</Box>;

@@ -1,13 +1,7 @@
-import { Form, VStack } from "@my/shared/front/components/layouts";
+import { Form, VStack } from "@web/ui/components/layouts";
 import { User, UserProfile } from "@my/shared/entities/User";
-import {
-  Button,
-  Label,
-  Input,
-  FileInput,
-  Image,
-} from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Button, Label, Input, FileInput, Image } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 import { useUserForm } from "~/store/components/organisms/User/Form";
 
 type Props = MarginProps & { user?: User; submit: (user: User) => void };

@@ -1,5 +1,5 @@
 import { Router } from "~/router";
-import { ComponentProvider } from "@my/shared/front/components";
+import { ComponentProvider } from "@web/ui/components";
 
 const App = () => {
   return (

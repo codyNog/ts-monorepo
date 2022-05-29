@@ -1,8 +1,8 @@
 import { Post } from "@my/shared/entities/Post";
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
-import { Box } from "~/components/atoms/Box";
-import { VStack } from "~/components/atoms/Stack";
-import { Text } from "~/components/atoms/Text";
+import { Box } from "@native/ui/components/layouts/Box";
+import { VStack } from "@native/ui/components/layouts/Stack";
+import { Text } from "@native/ui/components/atoms/Text";
 import { usePostList } from "~/store/components/organisms/Post/List";
 import { PostListForm } from "~/components/organisms/Post/List/Form";
 

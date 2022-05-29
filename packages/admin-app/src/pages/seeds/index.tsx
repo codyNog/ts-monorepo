@@ -1,5 +1,5 @@
 import { backend } from "@my/shared/front/backend";
-import { Button } from "@my/shared/front/components";
+import { Button } from "@web/ui/components";
 import { useCallback } from "react";
 
 const Component = () => {

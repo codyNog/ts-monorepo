@@ -1,14 +1,9 @@
 import { Category } from "@my/shared/entities/Category";
-import {
-  Accordion,
-  Button,
-  CenteredSpinner,
-  Text,
-} from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Accordion, Button, CenteredSpinner, Text } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 import { useCategoryList } from "~/store/components/organisms/Category/List";
 import { CategoryListForm } from "~/components/organisms/Category/List/Form";
-import { VStack, Scroll, Flex } from "@my/shared/front/components/layouts";
+import { VStack, Scroll, Flex } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
 type ItemProps = MarginProps & {

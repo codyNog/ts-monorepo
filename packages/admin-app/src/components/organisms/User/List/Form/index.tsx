@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
-import { Form, VStack } from "@my/shared//front/components/layouts";
+import { Form, VStack } from "@web/ui/components/layouts";
 import { GetUsersParameter } from "@my/shared/front/repositories/User/types";
-import { Button, Input, Label } from "@my/shared//front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Button, Input, Label } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 
 type FormProps = MarginProps & {
   parameter: GetUsersParameter;

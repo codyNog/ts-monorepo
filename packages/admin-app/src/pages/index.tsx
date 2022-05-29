@@ -1,4 +1,4 @@
-import { Box, VStack } from "@my/shared/front/components/layouts";
+import { Box, VStack } from "@web/ui/components/layouts";
 
 const RootPage = () => {
   return (

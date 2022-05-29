@@ -1,14 +1,14 @@
-import { NativeBaseProvider } from "native-base";
+import { ComponentProvider } from "@native/ui/components/provider";
 import { SafeAreaView } from "react-native";
 import { Navigation } from "~/navigation";
 
 const App = () => {
   return (
-    <NativeBaseProvider>
+    <ComponentProvider>
       <SafeAreaView>
         <Navigation />
       </SafeAreaView>
-    </NativeBaseProvider>
+    </ComponentProvider>
   );
 };
 

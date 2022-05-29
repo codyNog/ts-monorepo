@@ -8,9 +8,9 @@ import {
   Tag,
   Text,
   TextArea,
-} from "@my/shared/front/components";
-import { Box, Form, VStack } from "@my/shared/front/components/layouts";
-import { MarginProps } from "@my/shared/front/components/style";
+} from "@web/ui/components";
+import { Box, Form, VStack } from "@web/ui/components/layouts";
+import { MarginProps } from "@web/ui/components/style";
 import { usePostForm } from "~/store/components/organisms/Post/Form";
 
 type Props = MarginProps & { post?: Post; submit: (post: Post) => void };

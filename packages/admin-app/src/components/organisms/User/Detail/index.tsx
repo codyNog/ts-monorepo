@@ -1,6 +1,6 @@
 import { User } from "@my/shared/entities/User";
-import { VStack } from "@my/shared/front/components/layouts";
-import { Text } from "@my/shared/front/components";
+import { VStack } from "@web/ui/components/layouts";
+import { Text } from "@web/ui/components";
 import { Link } from "~/components/atoms/Link";
 
 type Props = {

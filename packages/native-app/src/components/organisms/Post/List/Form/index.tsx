@@ -1,8 +1,8 @@
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
 import { useCallback, useState } from "react";
-import { Button } from "~/components/atoms/Button";
-import { Input } from "~/components/atoms/Input";
-import { VStack } from "~/components/atoms/Stack";
+import { Button } from "@native/ui/components/atoms/Button";
+import { Input } from "@native/ui/components/atoms/Input";
+import { VStack } from "@native/ui/components/layouts/Stack";
 
 type Props = {
   submit: (parameter: GetPostsParameter) => void;

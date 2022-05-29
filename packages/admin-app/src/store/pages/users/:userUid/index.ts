@@ -3,13 +3,11 @@ import { useUser } from "@my/shared/front/store/domain/User";
 import { User } from "@my/shared/entities/User";
 import { useCallback, useState } from "react";
 import { pagesPath } from "~/libs/$path";
-import { usePromise } from "@my/shared/front/store/utils/Promise";
 
 type Query = { userUid: string };
 
 export const useUserPage = () => {
   const { userUid } = useRouter().query as Query;
-  const { onError, onSuccess } = usePromise();
   const { getUser, updateUser } = useUser();
   const [isEditing, setEditing] = useState(false);
 
@@ -21,13 +19,10 @@ export const useUserPage = () => {
   const submit = useCallback(
     async (user: User) => {
       mutate(user, false);
-      await updateUser(user).catch(() =>
-        onError("ユーザーを更新できませんでした")
-      );
-      onSuccess("ユーザーを更新しました");
+      await updateUser(user);
       mutate();
     },
-    [mutate, updateUser, onError, onSuccess]
+    [mutate, updateUser]
   );
 
   return { user, href, submit, isValidating, isEditing, setEditing };

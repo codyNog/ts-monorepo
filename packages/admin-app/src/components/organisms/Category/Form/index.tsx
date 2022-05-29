@@ -1,7 +1,7 @@
-import { Form, VStack } from "@my/shared/front/components/layouts";
+import { Form, VStack } from "@web/ui/components/layouts";
 import { Category } from "@my/shared/entities/Category";
-import { Button, Input, Label } from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Button, Input, Label } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 import { useCategoryForm } from "~/store/components/organisms/Category/Form";
 
 type Props = MarginProps & {

@@ -28,4 +28,4 @@ export { CenteredSpinner } from "./molecules/CenteredSpinner";
 export { MultipleInput } from "./molecules/MultipleInput";
 
 // wrapper
-export { ComponentProvider, InterplayProvider } from "./provider";
+export { ComponentProvider } from "./provider";

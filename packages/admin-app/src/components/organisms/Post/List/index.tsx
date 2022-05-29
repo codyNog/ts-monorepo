@@ -1,14 +1,9 @@
 import { Post } from "@my/shared/entities/Post";
-import {
-  Accordion,
-  CenteredSpinner,
-  Button,
-  Text,
-} from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Accordion, CenteredSpinner, Button, Text } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 import { usePostList } from "~/store/components/organisms/Post/List";
 import { PostListForm } from "~/components/organisms/Post/List/Form";
-import { VStack, Flex, Scroll } from "@my/shared/front/components/layouts";
+import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
 import { Link } from "~/components/atoms/Link";
 

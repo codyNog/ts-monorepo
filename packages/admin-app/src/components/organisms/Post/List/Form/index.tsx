@@ -1,15 +1,10 @@
 import { useCallback, useState } from "react";
-import { Form, VStack } from "@my/shared/front/components/layouts";
+import { Form, VStack } from "@web/ui/components/layouts";
 import { backend } from "@my/shared/front/backend";
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
-import {
-  AutoComplete,
-  Label,
-  Input,
-  Button,
-} from "@my/shared/front/components";
+import { AutoComplete, Label, Input, Button } from "@web/ui/components";
 import { initialState } from "~/constants/state";
-import { MarginProps } from "@my/shared/front/components/style";
+import { MarginProps } from "@web/ui/components/style";
 
 type FormProps = MarginProps & {
   parameter: GetPostsParameter;

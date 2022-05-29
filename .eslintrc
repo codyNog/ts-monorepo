@@ -49,6 +49,12 @@
       }
     },
     {
+      "files": ["packages/web-ui/**"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    },
+    {
       "files": ["packages/shared/front/api/**"],
       "rules": {
         "import/no-default-export": "off"

@@ -1,6 +1,6 @@
 import { User } from "@my/shared/entities/User";
-import { Avatar, Card } from "@my/shared/front/components";
-import { Box, Flex } from "@my/shared/front/components/layouts";
+import { Avatar, Card } from "@web/ui/components";
+import { Box, Flex } from "@web/ui/components/layouts";
 
 type Props = {
   user: User;

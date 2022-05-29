@@ -1,6 +1,5 @@
 import { render as tRender } from "@testing-library/react";
-import React from "react";
-import { ComponentProvider } from "../../../../web-ui/components";
+import { ComponentProvider } from "../../components/provider";
 
 const wrapper = ({ children }: { children: JSX.Element }) => {
   return <ComponentProvider>{children}</ComponentProvider>;

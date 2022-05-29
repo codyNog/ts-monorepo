@@ -1,8 +1,8 @@
-import { Flex, Box } from "@my/shared/front/components/layouts";
+import { Flex, Box } from "@web/ui/components/layouts";
 import { pagesPath } from "~/libs/$path";
-import { Text, UnorderedList } from "@my/shared/front/components";
+import { Text, UnorderedList } from "@web/ui/components";
 import { Link } from "~/components/atoms/Link";
-import { MarginProps } from "@my/shared/front/components/style";
+import { MarginProps } from "@web/ui/components/style";
 
 type Navigation = { href: string; title: string };
 

@@ -1,14 +1,9 @@
 import { User } from "@my/shared/entities/User";
-import {
-  Accordion,
-  Text,
-  Button,
-  CenteredSpinner,
-} from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Accordion, Text, Button, CenteredSpinner } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 import { useUserList } from "~/store/components/organisms/User/List";
 import { UserListForm } from "~/components/organisms/User/List/Form";
-import { VStack, Flex, Scroll } from "@my/shared/front/components/layouts";
+import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
 type ItemProps = MarginProps & {

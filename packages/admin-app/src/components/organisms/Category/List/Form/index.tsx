@@ -1,8 +1,8 @@
-import { Form, VStack } from "@my/shared/front/components/layouts";
+import { Form, VStack } from "@web/ui/components/layouts";
 import { GetCategoriesParameter } from "@my/shared/front/repositories/Category/types";
 import { useCallback, useState } from "react";
-import { Button, Input, Label } from "@my/shared/front/components";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Button, Input, Label } from "@web/ui/components";
+import { MarginProps } from "@web/ui/components/style";
 
 type Props = MarginProps & {
   parameter: GetCategoriesParameter;
@@ -14,8 +14,9 @@ export const CategoryListForm = ({
   submit: onSubmit,
   ...marginProps
 }: Props) => {
-  const [parameter, setParameter] =
-    useState<GetCategoriesParameter>(parameterProps);
+  const [parameter, setParameter] = useState<GetCategoriesParameter>(
+    parameterProps
+  );
 
   const onChangeName = useCallback(
     (name: string) => {

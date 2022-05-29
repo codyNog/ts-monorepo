@@ -1,6 +1,6 @@
-import { ComponentProvider } from "../../components";
+import { ComponentProvider } from "../components";
 
-export const storybookParameters = {
+export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -20,4 +20,4 @@ const withChakra = (StoryFn: Function) => {
   );
 };
 
-export const storybookDecorators = [withChakra];
+export const decorators = [withChakra];

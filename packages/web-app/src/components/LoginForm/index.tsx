@@ -1,6 +1,6 @@
-import { Button, Input, Label } from "@my/shared/front/components";
-import { VStack } from "@my/shared/front/components/layouts";
-import { MarginProps } from "@my/shared/front/components/style";
+import { Button, Input, Label } from "@web/ui/components";
+import { VStack } from "@web/ui/components/layouts";
+import { MarginProps } from "@web/ui/components/style";
 import { LoginParmeter } from "@my/shared/front/repositories/User/types";
 import { useLoginForm } from "~/store/components/LoginForm";
 
@@ -9,8 +9,9 @@ type Props = MarginProps & {
 };
 
 export const LoginForm = ({ onSubmit, ...marginProps }: Props): JSX.Element => {
-  const { parameter, onChangeName, onChangePassword, submit } =
-    useLoginForm(onSubmit);
+  const { parameter, onChangeName, onChangePassword, submit } = useLoginForm(
+    onSubmit
+  );
 
   return (
     <VStack {...marginProps}>
