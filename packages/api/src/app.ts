@@ -23,3 +23,5 @@ server.register(v1Router, { prefix: "/api/v1" });
 
 // eslint-disable-next-line import/no-default-export
 export default server;
+
+export const viteNodeApp = server;

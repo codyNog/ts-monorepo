@@ -1,6 +1,15 @@
 version: "3.8"
 
 services:
+  api:
+    image: node:16
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    command: >
+        bash -c "cd packages/api && npm run dev"
   postgres:
     image: postgres:14
     restart: always

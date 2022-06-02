@@ -1,11 +1,7 @@
-describe(
-	"test",
-	() => {
-		test(
-			"1+1",
-			() => {
-				expect(1 + 1).toBe(2);
-			},
-		);
-	},
-);
+import { expect, test, describe } from "vitest";
+
+describe("test", () => {
+  test("1+1", () => {
+    expect(1 + 1).toBe(2);
+  });
+});
