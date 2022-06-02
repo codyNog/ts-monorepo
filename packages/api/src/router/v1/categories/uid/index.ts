@@ -12,7 +12,7 @@ import {
 import { updateCategoryBodySchema } from "@my/shared/api/Category/bodies";
 
 const get = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.get(
+  fastify.get<{ Params: GetCategoryParameter; Reply: Category }>(
     routing.categories.uid,
     {
       schema: {
@@ -23,16 +23,15 @@ const get = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: categorySchema },
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as GetCategoryParameter;
-      const category = await backend.category.get(uid);
+    async ({ params }, reply) => {
+      const category = await backend.category.get(params.uid);
       reply.send(category);
     }
   );
 };
 
 const put = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.put(
+  fastify.put<{ Body: Category; Reply: Category }>(
     routing.categories.uid,
     {
       schema: {
@@ -44,16 +43,15 @@ const put = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: categorySchema },
       },
     },
-    async (request, reply) => {
-      const { body } = request;
-      const category = await backend.category.update(body as Category);
+    async ({ body }, reply) => {
+      const category = await backend.category.update(body);
       reply.send(category);
     }
   );
 };
 
 const deleteCategory = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.delete(
+  fastify.delete<{ Params: DeleteCategoryParameter }>(
     routing.categories.uid,
     {
       schema: {
@@ -63,9 +61,8 @@ const deleteCategory = async (fastify: FastifyInstance): Promise<void> => {
         params: deleteCategoryParameterSchema,
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as DeleteCategoryParameter;
-      await backend.category.delete(uid);
+    async ({ params }, reply) => {
+      await backend.category.delete(params.uid);
       reply.send(200);
     }
   );

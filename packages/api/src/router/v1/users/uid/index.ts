@@ -12,7 +12,7 @@ import {
 import { updateUserBodySchema } from "@my/shared/api/User/bodies";
 
 const get = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.get(
+  fastify.get<{ Params: GetUserParameter; Reply: User }>(
     routing.users.uid,
     {
       schema: {
@@ -23,16 +23,15 @@ const get = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: userSchema },
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as GetUserParameter;
-      const user = await backend.user.get(uid);
+    async ({ params }, reply) => {
+      const user = await backend.user.get(params.uid);
       reply.send(user);
     }
   );
 };
 
 const put = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.put(
+  fastify.put<{ Body: User; Reply: User }>(
     routing.users.uid,
     {
       schema: {
@@ -44,16 +43,15 @@ const put = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: userSchema },
       },
     },
-    async (request, reply) => {
-      const { body } = request;
-      const user = await backend.user.update(body as User);
+    async ({ body }, reply) => {
+      const user = await backend.user.update(body);
       reply.send(user);
     }
   );
 };
 
 const deleteUser = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.delete(
+  fastify.delete<{ Params: DeleteUserParameter }>(
     routing.users.uid,
     {
       schema: {
@@ -63,9 +61,8 @@ const deleteUser = async (fastify: FastifyInstance): Promise<void> => {
         params: deleteUserParameterSchema,
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as DeleteUserParameter;
-      await backend.user.delete(uid);
+    async ({ params }, reply) => {
+      await backend.user.delete(params.uid);
       reply.send(200);
     }
   );

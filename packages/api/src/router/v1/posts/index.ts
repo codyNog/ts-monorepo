@@ -10,7 +10,7 @@ import { postUidRouter } from "~/router/v1/posts/uid";
 import { createPostBodySchema } from "@my/shared/api/Post/bodies";
 
 const post = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.post(
+  fastify.post<{ Body: Post; Reply: Post }>(
     routing.posts.root,
     {
       schema: {
@@ -21,16 +21,15 @@ const post = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: postSchema },
       },
     },
-    async (request, reply) => {
-      const { body } = request;
-      const post: Post = await backend.post.create(body as Post);
+    async ({ body }, reply) => {
+      const post: Post = await backend.post.create(body);
       reply.send(post);
     }
   );
 };
 
 const get = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.get(
+  fastify.get<{ Querystring: GetPostsQuery; Reply: Post[] }>(
     routing.posts.root,
     {
       schema: {
@@ -41,9 +40,7 @@ const get = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: postsSchema },
       },
     },
-    async (request, reply) => {
-      type Request = { query: GetPostsQuery };
-      const { query } = request as Request;
+    async ({ query }, reply) => {
       const posts: Post[] = await backend.post.getMany(query);
       reply.send(posts);
     }

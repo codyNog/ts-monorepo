@@ -13,7 +13,7 @@ import {
 import { updatePostBodySchema } from "@my/shared/api/Post/bodies";
 
 const get = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.get(
+  fastify.get<{ Params: GetPostParameter; Reply: Post }>(
     routing.posts.uid,
     {
       schema: {
@@ -24,18 +24,15 @@ const get = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: postSchema },
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as GetPostParameter;
-      const post = await backend.post.get(uid);
+    async ({ params }, reply) => {
+      const post = await backend.post.get(params.uid);
       reply.send(post);
     }
   );
 };
 
-type UpdatePostRequest = { body: Post; params: UpdatePostParameter };
-
 const put = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.put(
+  fastify.put<{ Body: Post; Params: UpdatePostParameter; Reply: Post }>(
     routing.posts.uid,
     {
       schema: {
@@ -47,21 +44,20 @@ const put = async (fastify: FastifyInstance): Promise<void> => {
         params: updatePostParameterSchema,
       },
     },
-    async (request, reply) => {
-      const { body, params } = request as UpdatePostRequest;
+    async ({ body, params }, reply) => {
       const { uid } = params;
       if (body.uid !== uid) {
         throw 400;
       }
 
-      const post = await backend.post.update(body as Post);
+      const post = await backend.post.update(body);
       reply.send(post);
     }
   );
 };
 
 const deletePost = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.delete(
+  fastify.delete<{ Params: DeletePostParameter; Reply: number }>(
     routing.posts.uid,
     {
       schema: {
@@ -71,9 +67,8 @@ const deletePost = async (fastify: FastifyInstance): Promise<void> => {
         params: deletePostParameterSchema,
       },
     },
-    async (request, reply) => {
-      const { uid } = request.params as DeletePostParameter;
-      await backend.post.delete(uid);
+    async ({ params }, reply) => {
+      await backend.post.delete(params.uid);
       reply.send(200);
     }
   );

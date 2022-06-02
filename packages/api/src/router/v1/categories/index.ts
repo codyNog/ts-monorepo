@@ -14,7 +14,7 @@ import { categoryUidRouter } from "~/router/v1/categories/uid";
 import { createCategoryBodySchema } from "@my/shared/api/Category/bodies";
 
 const post = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.post(
+  fastify.post<{ Body: Category; Reply: Category }>(
     routing.categories.root,
     {
       schema: {
@@ -25,18 +25,15 @@ const post = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: categorySchema },
       },
     },
-    async (request, reply) => {
-      const { body } = request;
-      const category: Category = await backend.category.create(
-        body as Category
-      );
+    async ({ body }, reply) => {
+      const category: Category = await backend.category.create(body);
       reply.send(category);
     }
   );
 };
 
 const get = async (fastify: FastifyInstance): Promise<void> => {
-  fastify.get(
+  fastify.get<{ Querystring: GetCategoriesQuery; Reply: Category[] }>(
     routing.categories.root,
     {
       schema: {
@@ -47,11 +44,8 @@ const get = async (fastify: FastifyInstance): Promise<void> => {
         response: { 200: categoriesSchema },
       },
     },
-    async (request, reply) => {
-      const { query } = request;
-      const categories: Category[] = await backend.category.getMany(
-        query as GetCategoriesQuery
-      );
+    async ({ query }, reply) => {
+      const categories: Category[] = await backend.category.getMany(query);
       reply.send(categories);
     }
   );
