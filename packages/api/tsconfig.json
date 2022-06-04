@@ -10,7 +10,7 @@
     "module": "commonjs", // TSのモジュールはES Modulesとして出力,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
     },
   },
   "include": [

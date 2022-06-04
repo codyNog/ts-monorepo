@@ -4,6 +4,6 @@
       "@my/shared/*": ["./packages/shared/*"],
       "@web/ui/*": ["./packages/web-ui/*"],
       "@native/ui/*": ["./packages/native-ui/*"],
-    }
+    },
   }
 }

@@ -2,7 +2,7 @@
   "name": "api",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack",
+    "build": "pnpm prisma-gen && webpack",
     "dev": "DATABASE_URL=postgresql://postgres:root@localhost:5432/postgres vite",
     "migrate-dev": "pnpm prisma migrate dev --name init",
     "migrate-prd": "pnpm prisma migrate deploy",
@@ -14,7 +14,6 @@
     "@anatine/zod-openapi": "1.3.0",
     "@fastify/cors": "^7.0.0",
     "@fastify/swagger": "^6.0.1",
-    "@my/shared": "*",
     "@prisma/client": "3.13.0",
     "@sentry/node": "6.19.7",
     "fastify": "3.29.0",
