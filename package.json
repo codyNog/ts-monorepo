@@ -17,6 +17,7 @@
     "interplay:shared": "pnpm --filter=./packages/shared/** interplay",
     "lint": "eslint ./packages/** --ext .jsx,.js,.ts,.tsx --quiet --ignore-path ./.gitignore",
     "lint-fix": "eslint ./packages/** --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "migrate-dev": "pnpm --filter=./** migrate-dev",
     "pathpida": "pnpm --filter=./** pathpida",
     "prepare": "husky install",
     "prisma-gen": "pnpm ---filter=./packages/api/** prisma-gen",

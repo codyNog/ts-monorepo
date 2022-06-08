@@ -1,5 +1,6 @@
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
+const tsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -14,7 +15,6 @@ module.exports = {
           loader: "ts-loader",
           options: {
             transpileOnly: true,
-            configFile: "tsconfig.json",
           },
         },
       },
@@ -24,8 +24,10 @@ module.exports = {
     modules: ["node_modules"],
     alias: {
       "~": path.resolve(__dirname, "src"),
+      "@my/shared": path.resolve(__dirname, ",,/../shared"),
     },
     extensions: [".ts", ".js"],
+    plugins: [new tsconfigPathsPlugin({ configFile: "tsconfig.json" })],
   },
   target: ["web", "es5"],
   externals: [

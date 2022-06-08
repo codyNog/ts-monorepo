@@ -2,14 +2,20 @@ version: "3.8"
 
 services:
   api:
-    image: node:16
-    restart: always
+    build:
+      context: .
+      target: base
     ports:
       - 8080:8080
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@postgres:5432/postgres
     depends_on:
       - postgres
-    command: >
-        bash -c "cd packages/api && npm run dev"
+    command: sh -c 'pnpm i --reporter=silent && pnpm prisma-gen && pnpm migrate-dev && pnpm dev:api'
   postgres:
     image: postgres:14
     restart: always

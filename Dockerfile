@@ -7,7 +7,7 @@ RUN apk update; \
   curl \
   ;
 
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6.32.3
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@7.0.0
 
 RUN apk del .build-deps
 

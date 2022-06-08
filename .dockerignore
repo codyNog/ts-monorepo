@@ -1,2 +1,7 @@
 node_modules*
 npm-debug.log
+packages/admin-app
+packages/native-app
+packages/native-ui
+packages/web-app
+packages/web-ui

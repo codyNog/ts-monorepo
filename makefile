@@ -1,7 +1,7 @@
 start:
 	docker-compose up -d
 stop:
-	docker stop `docker ps -q`
+	docker stop $$(docker ps -q -a)
 build:
 	docker-compose build
 rebuild:
