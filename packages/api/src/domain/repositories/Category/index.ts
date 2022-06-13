@@ -1,9 +1,12 @@
+import { categoryImplModules } from "~/domain/repositories/Category/modules";
 import { Category } from "@my/shared/entities/Category";
 import { prisma } from "~/libs/prisma";
 import { GetCategoriesQuery } from "@my/shared/api/Category/queries";
 
+const { createData, updateData } = categoryImplModules;
+
 const create = async (category: Category): Promise<Category> => {
-  const { uid: _, ...data } = category;
+  const data = createData(category);
   return await prisma.category.create({ data });
 };
 
@@ -22,9 +25,11 @@ const get = async (uid: string): Promise<Category> => {
 };
 
 const update = async (category: Category): Promise<Category> => {
+  const data = updateData(category);
+
   return await prisma.category.update({
     where: { uid: category.uid },
-    data: category,
+    data,
   });
 };
 
