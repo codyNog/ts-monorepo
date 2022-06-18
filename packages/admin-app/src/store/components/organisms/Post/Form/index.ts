@@ -76,3 +76,32 @@ export const usePostForm = (postProps?: Post) => {
     onChangeCategoryInput,
   };
 };
+
+if (!!import.meta.vitest) {
+  const { describe, it, expect, beforeAll } = import.meta.vitest;
+  const { mocks } = await import("@my/shared/mocks");
+  const { renderHook } = await import("@testing-library/react-hooks");
+  const { startTestServer } = await import("@my/shared/front/libs/msw");
+
+  describe("usePostForm()", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("初期状態", () => {
+      const { result } = renderHook(() => usePostForm());
+      expect<Post>(result.current.post).toStrictEqual<Post>(initialState.post);
+    });
+  });
+
+  describe("usePostForm(mocks.post.post)", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("初期状態", () => {
+      const { result } = renderHook(() => usePostForm(mocks.post.post));
+      expect<Post>(result.current.post).toStrictEqual<Post>(mocks.post.post);
+    });
+  });
+}
