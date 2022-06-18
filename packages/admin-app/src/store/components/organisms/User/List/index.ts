@@ -24,3 +24,29 @@ export const useUserList = () => {
 
   return { users, parameter, submit, onClickDeleteButton };
 };
+
+if (!!import.meta.vitest) {
+  const { describe, it, expect, beforeAll } = import.meta.vitest;
+  const { mocks } = await import("@my/shared/mocks");
+  const { renderHook } = await import("@testing-library/react-hooks");
+  const { startTestServer } = await import("@my/shared/front/libs/msw");
+
+  describe("useUserList", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("初期状態", async () => {
+      const { result, waitForNextUpdate } = renderHook(useUserList);
+      expect<User[] | undefined>(result.current.users).toStrictEqual<
+        User[] | undefined
+      >(undefined);
+
+      await waitForNextUpdate();
+
+      expect<User[] | undefined>(result.current.users).toStrictEqual<
+        User[] | undefined
+      >(mocks.user.users);
+    });
+  });
+}

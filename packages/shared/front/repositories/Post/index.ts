@@ -1,4 +1,5 @@
 import { Post } from "../../../entities/Post";
+import { env } from "../../env";
 import { v1Client } from "../../libs/aspida";
 import { postImplModules } from "./modules";
 import { GetPostsParameter } from "./types";
@@ -30,7 +31,7 @@ const deletePost = async (uid: string): Promise<void> => {
 
 export const PostImpl = { create, getMany, get, update, delete: deletePost };
 
-if (!!import.meta.vitest) {
+if (env.NODE_ENV === "test" && !!import.meta.vitest) {
   const { describe, it, expect, beforeAll } = import.meta.vitest;
   const { mocks } = await import("../../../mocks");
   const { startTestServer } = await import("../../libs/msw");

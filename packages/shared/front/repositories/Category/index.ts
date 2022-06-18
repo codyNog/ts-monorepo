@@ -6,6 +6,7 @@ import {
 } from "../../../api/Category/bodies";
 import { UpdateCategoryParameter } from "../../../api/Category/parameters";
 import { GetCategoriesQuery } from "../../../api/Category/queries";
+import { env } from "../../env";
 
 const create = async (category: Category): Promise<Category> => {
   const body: CreateCategoryBody = category;
@@ -38,7 +39,7 @@ export const CategoryImpl = {
   delete: deleteCategory,
 };
 
-if (!!import.meta.vitest) {
+if (env.NODE_ENV === "test" && !!import.meta.vitest) {
   const { describe, it, expect, beforeAll } = import.meta.vitest;
   const { mocks } = await import("../../../mocks");
   const { startTestServer } = await import("../../libs/msw");

@@ -3,6 +3,7 @@ import { GetCategoriesParameter } from "@my/shared/front/repositories/Category/t
 import { useCategory } from "@my/shared/front/store/domain/Category";
 import { Category } from "@my/shared/entities/Category";
 import { initialState } from "~/constants/state";
+import { env } from "@my/shared/front/env";
 
 export const useCategoryList = () => {
   const { getCategories, deleteCategory } = useCategory();
@@ -34,3 +35,29 @@ export const useCategoryList = () => {
     onClickDeleteButton,
   };
 };
+
+if (!!import.meta.vitest) {
+  const { describe, it, expect, beforeAll } = import.meta.vitest;
+  const { mocks } = await import("@my/shared/mocks");
+  const { renderHook } = await import("@testing-library/react-hooks");
+  const { startTestServer } = await import("@my/shared/front/libs/msw");
+
+  describe("useCategoryList", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("初期状態", async () => {
+      const { result, waitForNextUpdate } = renderHook(useCategoryList);
+      expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+        Category[] | undefined
+      >(undefined);
+
+      await waitForNextUpdate();
+
+      expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+        Category[] | undefined
+      >(mocks.category.categories);
+    });
+  });
+}
