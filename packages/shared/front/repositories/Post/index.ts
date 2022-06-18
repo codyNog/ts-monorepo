@@ -29,3 +29,25 @@ const deletePost = async (uid: string): Promise<void> => {
 };
 
 export const PostImpl = { create, getMany, get, update, delete: deletePost };
+
+if (!!import.meta.vitest) {
+  const { describe, it, expect, beforeAll } = import.meta.vitest;
+  const { mocks } = await import("../../../mocks");
+  const { startTestServer } = await import("../../libs/msw");
+
+  describe("postImpl", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("get", async () => {
+      const post = await PostImpl.get("foo");
+      expect(post).toStrictEqual(mocks.post.post);
+    });
+
+    it("getMany", async () => {
+      const post = await PostImpl.getMany();
+      expect(post).toStrictEqual(mocks.post.posts);
+    });
+  });
+}

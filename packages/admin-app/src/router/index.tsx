@@ -14,7 +14,6 @@ const Post = lazy(() => import("~/pages/posts/:postUid"));
 const Categories = lazy(() => import("~/pages/categories"));
 const Category = lazy(() => import("~/pages/categories/:categoryUid"));
 const CategoryNew = lazy(() => import("~/pages/categories/new"));
-const Seeds = lazy(() => import("~/pages/seeds"));
 const NotFound = lazy(() => import("~/pages/404"));
 
 export const Router = () => {
@@ -61,8 +60,6 @@ export const Router = () => {
               path={pagesPath.categories.new.$url().pathname}
               element={<CategoryNew />}
             />
-            {/* /seeds */}
-            <Route path={pagesPath.seeds.$url().pathname} element={<Seeds />} />
             {/* 404 */}
             <Route path={"*"} element={<NotFound />} />
           </Routes>

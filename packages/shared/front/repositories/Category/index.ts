@@ -37,3 +37,24 @@ export const CategoryImpl = {
   update,
   delete: deleteCategory,
 };
+
+if (!!import.meta.vitest) {
+  const { describe, it, expect, beforeAll } = import.meta.vitest;
+  const { mocks } = await import("../../../mocks");
+  const { startTestServer } = await import("../../libs/msw");
+  describe("categoryImpl", () => {
+    beforeAll(() => {
+      startTestServer();
+    });
+
+    it("get", async () => {
+      const category = await CategoryImpl.get("foo");
+      expect(category).toStrictEqual(mocks.category.category);
+    });
+
+    it("getMany", async () => {
+      const category = await CategoryImpl.getMany();
+      expect(category).toStrictEqual(mocks.category.categories);
+    });
+  });
+}
