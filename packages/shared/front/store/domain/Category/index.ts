@@ -1,22 +1,15 @@
 import { useCallback } from "react";
-import useSWR from "swr";
+import { useSWR } from "../../../libs/swr";
 import { backend } from "../../../backend";
 import { Category } from "../../../../entities/Category";
-import { swrConfig } from "../../../libs/swr";
 import { GetCategoriesParameter } from "../../../repositories/Category/types";
 
 const useGetCategory = (uid: string) =>
-  useSWR<Category>(
-    ["category", uid],
-    () => backend.category.get(uid),
-    swrConfig
-  );
+  useSWR<Category>(["category", uid], () => backend.category.get(uid));
 
 const useGetCategories = (query: GetCategoriesParameter) =>
-  useSWR<Category[]>(
-    ["categories", query],
-    () => backend.category.getMany(query),
-    swrConfig
+  useSWR<Category[]>(["categories", String(query)], () =>
+    backend.category.getMany(query)
   );
 
 export const useCategory = () => {

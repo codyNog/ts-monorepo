@@ -1,19 +1,16 @@
 import { useCallback } from "react";
-import useSWR from "swr";
+import { useSWR } from "../../../libs/swr";
 import { backend } from "../../../backend";
 import { User } from "../../../../entities/User";
 import { GetUsersParameter } from "../../../repositories/User/types";
-import { swrConfig } from "../../../libs/swr";
 
 const useGetUser = (uid: string, onError?: () => void) =>
   useSWR<User>(uid ? ["user", uid] : null, () => backend.user.get(uid), {
-    ...swrConfig,
     onError,
   });
 
 const useGetUsers = (query: GetUsersParameter, onError?: () => void) =>
-  useSWR<User[]>(["users", query], () => backend.user.getMany(query), {
-    ...swrConfig,
+  useSWR<User[]>(["users", String(query)], () => backend.user.getMany(query), {
     onError,
   });
 

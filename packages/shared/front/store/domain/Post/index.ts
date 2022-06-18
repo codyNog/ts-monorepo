@@ -1,19 +1,14 @@
 import { useCallback } from "react";
-import useSWR from "swr";
 import { GetPostsParameter } from "../../../repositories/Post/types";
 import { backend } from "../../../backend";
 import { Post } from "../../../../entities/Post";
-import { swrConfig } from "../../../libs/swr";
+import { useSWR } from "../../../libs/swr";
 
 const useGetPost = (uid: string) =>
-  useSWR<Post>(["post", uid], () => backend.post.get(uid), swrConfig);
+  useSWR<Post>(["post", uid], () => backend.post.get(uid));
 
 const useGetPosts = (query: GetPostsParameter) =>
-  useSWR<Post[]>(
-    ["posts", query],
-    () => backend.post.getMany(query),
-    swrConfig
-  );
+  useSWR<Post[]>(["posts", String(query)], () => backend.post.getMany(query));
 
 export const usePost = () => {
   const createPost = useCallback(async (post: Post) => {
