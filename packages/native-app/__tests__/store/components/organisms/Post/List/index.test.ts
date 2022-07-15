@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react";
 import { mocks } from "@my/shared/mocks";
 import { startTestServer } from "@my/shared/front/libs/msw";
 import { usePostList } from "~/store/components/organisms/Post/List";

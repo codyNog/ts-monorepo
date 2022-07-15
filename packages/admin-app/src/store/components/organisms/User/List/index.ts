@@ -25,10 +25,10 @@ export const useUserList = () => {
 	return { users, parameter, submit, onClickDeleteButton };
 };
 
-if (!!import.meta.vitest) {
+if (import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("@my/shared/mocks");
-	const { renderHook } = await import("@testing-library/react-hooks");
+	const { renderHook, waitFor } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
 	describe(
@@ -41,16 +41,16 @@ if (!!import.meta.vitest) {
 			it(
 				"初期状態",
 				async () => {
-					const { result, waitForNextUpdate } = renderHook(useUserList);
+					const { result } = renderHook(useUserList);
 					expect<User[] | undefined>(result.current.users).toStrictEqual<
 						User[] | undefined
 					>(undefined);
 
-					await waitForNextUpdate();
-
-					expect<User[] | undefined>(result.current.users).toStrictEqual<
-						User[] | undefined
-					>(mocks.user.users);
+					waitFor(() => {
+						expect<User[] | undefined>(result.current.users).toStrictEqual<
+							User[] | undefined
+						>(mocks.user.users);
+					});
 				},
 			);
 		},

@@ -31,7 +31,7 @@ const deleteUser = async (uid: string): Promise<void> => {
 
 export const UserImpl = { create, getMany, get, update, delete: deleteUser };
 
-if (env.NODE_ENV === "test" && !!import.meta.vitest) {
+if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("../../../mocks");
 	const { startTestServer } = await import("../../libs/msw");
