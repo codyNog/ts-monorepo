@@ -1,1 +1,1 @@
-export { storybookParameters as parameters, storybookDecorators as decorators } from "@my/shared/front/libs/storybook";
+export { parameters, decorators } from "@web/ui/.storybook/preview";
