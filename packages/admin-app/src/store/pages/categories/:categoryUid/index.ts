@@ -7,21 +7,21 @@ import { pagesPath } from "~/libs/$path";
 type Query = { categoryUid: string };
 
 export const useCategoryPage = () => {
-  const { push } = useRouter();
-  const { categoryUid } = useRouter().query as Query;
-  const { getCategory, updateCategory } = useCategory();
+	const { push } = useRouter();
+	const { categoryUid } = useRouter().query as Query;
+	const { getCategory, updateCategory } = useCategory();
 
-  const { data: category, mutate } = getCategory(categoryUid);
+	const { data: category, mutate } = getCategory(categoryUid);
 
-  const submit = useCallback(
-    async (category: Category) => {
-      mutate(category, false);
-      await updateCategory(category);
-      mutate();
-      push(pagesPath.categories.$url().pathname);
-    },
-    [mutate, updateCategory, push]
-  );
+	const submit = useCallback(
+		async (category: Category) => {
+			mutate(category, false);
+			await updateCategory(category);
+			mutate();
+			push(pagesPath.categories.$url().pathname);
+		},
+		[mutate, updateCategory, push],
+	);
 
-  return { category, submit };
+	return { category, submit };
 };

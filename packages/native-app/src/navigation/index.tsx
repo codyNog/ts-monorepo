@@ -5,24 +5,21 @@ import { TopScreen } from "~/screens/top";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
-type Screens = {
-  name: string;
-  component: () => JSX.Element | null;
-}[];
+type Screens = { name: string; component: () => JSX.Element | null }[];
 
 const screens: Screens = [
-  { name: "Top", component: TopScreen },
-  { name: "Post", component: PostsScreen },
+	{ name: "Top", component: TopScreen },
+	{ name: "Post", component: PostsScreen },
 ];
 
 export const Navigation = (): JSX.Element => {
-  return (
-    <NavigationContainer>
+	return (
+		<NavigationContainer>
       <Navigator>
         {screens.map((screen) => (
           <Screen key={screen.name} {...screen} />
         ))}
       </Navigator>
     </NavigationContainer>
-  );
+	);
 };

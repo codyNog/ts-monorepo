@@ -6,27 +6,23 @@ import { Text } from "@native/ui/components/atoms/Text";
 import { usePostList } from "~/store/components/organisms/Post/List";
 import { PostListForm } from "~/components/organisms/Post/List/Form";
 
-type ItemProps = {
-  post: Post;
-};
+type ItemProps = { post: Post };
 
 const Item = ({ post }: ItemProps) => {
-  return (
-    <Box>
+	return (
+		<Box>
       <Text>{post.title}</Text>
     </Box>
-  );
+	);
 };
 
-type Props = {
-  parameter?: GetPostsParameter;
-};
+type Props = { parameter?: GetPostsParameter };
 
 export const PostList = ({ parameter: parameterProps }: Props): JSX.Element => {
-  const { posts, submit } = usePostList(parameterProps);
+	const { posts, submit } = usePostList(parameterProps);
 
-  return (
-    <Box>
+	return (
+		<Box>
       <PostListForm submit={submit} />
       {!posts && null}
       {posts && (
@@ -37,5 +33,5 @@ export const PostList = ({ parameter: parameterProps }: Props): JSX.Element => {
         </VStack>
       )}
     </Box>
-  );
+	);
 };

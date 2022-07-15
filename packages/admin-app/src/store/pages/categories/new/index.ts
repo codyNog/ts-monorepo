@@ -5,16 +5,16 @@ import { pagesPath } from "~/libs/$path";
 import { useRouter } from "~/libs/router";
 
 export const useCategoryNewPage = () => {
-  const { push } = useRouter();
-  const { createCategory } = useCategory();
+	const { push } = useRouter();
+	const { createCategory } = useCategory();
 
-  const submit = useCallback(
-    async (category: Category) => {
-      await createCategory(category);
-      push(pagesPath.categories.$url().pathname);
-    },
-    [createCategory, push]
-  );
+	const submit = useCallback(
+		async (category: Category) => {
+			await createCategory(category);
+			push(pagesPath.categories.$url().pathname);
+		},
+		[createCategory, push],
+	);
 
-  return { submit };
+	return { submit };
 };

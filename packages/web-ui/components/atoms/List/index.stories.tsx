@@ -1,8 +1,8 @@
 import { UnorderedList as UL, OrderedList as OL } from ".";
 
 const items = [
-  { key: "foo", node: <div>foo</div> },
-  { key: "bar", node: <div>bar</div> },
+	{ key: "foo", node: <div>foo</div> },
+	{ key: "bar", node: <div>bar</div> },
 ];
 
 export default { title: "atoms/List" };

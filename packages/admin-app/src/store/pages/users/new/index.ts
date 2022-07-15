@@ -1,9 +1,9 @@
 import { useUser } from "@my/shared/front/store/domain/User";
 
 export const useUserNewPage = () => {
-  const { createUser } = useUser();
+	const { createUser } = useUser();
 
-  const submit = createUser;
+	const submit = createUser;
 
-  return { submit };
+	return { submit };
 };

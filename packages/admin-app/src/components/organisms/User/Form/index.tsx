@@ -6,15 +6,11 @@ import { useUserForm } from "~/store/components/organisms/User/Form";
 
 type Props = MarginProps & { user?: User; submit: (user: User) => void };
 
-export const UserForm = ({
-  user: userProps,
-  submit,
-  ...marginProps
-}: Props): JSX.Element => {
-  const { user, onChangeName, onChangeBiography } = useUserForm(userProps);
+export const UserForm = ({ user: userProps, submit, ...marginProps }: Props): JSX.Element => {
+	const { user, onChangeName, onChangeBiography } = useUserForm(userProps);
 
-  return (
-    <Form {...marginProps}>
+	return (
+		<Form {...marginProps}>
       <VStack spacing={4}>
         <Label htmlFor={"name"} label={"名前"}>
           <Input id={"name"} value={user.name} onChange={onChangeName} />
@@ -37,5 +33,5 @@ export const UserForm = ({
         <Button onClick={() => submit(user)}>送信</Button>
       </VStack>
     </Form>
-  );
+	);
 };

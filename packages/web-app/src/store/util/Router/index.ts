@@ -1,7 +1,7 @@
 import { useRouter as useNRouter } from "next/router";
 
 export const useRouter = () => {
-  const { push } = useNRouter();
+	const { push } = useNRouter();
 
-  return { push };
+	return { push };
 };

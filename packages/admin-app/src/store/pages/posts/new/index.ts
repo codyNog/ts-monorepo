@@ -1,9 +1,9 @@
 import { usePost } from "@my/shared/front/store/domain/Post";
 
 export const usePostNewPage = () => {
-  const { createPost } = usePost();
+	const { createPost } = usePost();
 
-  const submit = createPost;
+	const submit = createPost;
 
-  return { submit };
+	return { submit };
 };

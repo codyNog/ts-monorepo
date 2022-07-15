@@ -1,7 +1,7 @@
 import { PostList } from "~/components/Post/List";
 
 const Component = () => {
-  return <PostList />;
+	return <PostList />;
 };
 
 export default Component;

@@ -1,66 +1,51 @@
 import { CreatePostBody, UpdatePostBody } from "../../../../api/Post/bodies";
-import {
-  DeletePostParameter,
-  GetPostParameter,
-  UpdatePostParameter,
-} from "../../../../api/Post/parameters";
+import { DeletePostParameter, GetPostParameter, UpdatePostParameter } from "../../../../api/Post/parameters";
 import { Post } from "../../../../entities/Post";
 import { GetPostsQuery } from "../../../../api/Post/queries";
 import { GetPostsParameter } from "../types";
 
-type Create = {
-  body: CreatePostBody;
-};
+type Create = { body: CreatePostBody };
 
 const create = (post: Post): Create => {
-  const body: CreatePostBody = post;
-  return { body };
+	const body: CreatePostBody = post;
+	return { body };
 };
 
-type Get = {
-  param: GetPostParameter;
-};
+type Get = { param: GetPostParameter };
 
 const get = (uid: string): Get => {
-  const param: GetPostParameter = { uid };
-  return { param };
+	const param: GetPostParameter = { uid };
+	return { param };
 };
 
-type GetMany = {
-  query: GetPostsParameter | undefined;
-};
+type GetMany = { query: GetPostsParameter | undefined };
 
 const getMany = (param?: GetPostsParameter): GetMany => {
-  const query: GetPostsQuery | undefined = param;
-  return { query };
+	const query: GetPostsQuery | undefined = param;
+	return { query };
 };
 
-type Update = {
-  param: UpdatePostParameter;
-  body: UpdatePostBody;
-};
+type Update = { param: UpdatePostParameter; body: UpdatePostBody };
 
 const update = (post: Post): Update => {
-  const param: UpdatePostParameter = { uid: post.uid };
-  const body: UpdatePostBody = post;
+	const param: UpdatePostParameter = { uid: post.uid };
+	const body: UpdatePostBody = post;
 
-  return { param, body };
+	return { param, body };
 };
 
-type Delete = {
-  param: DeletePostParameter;
-};
+type Delete = { param: DeletePostParameter };
 
 const deletePost = (uid: string): Delete => {
-  const param: DeletePostParameter = { uid };
+	const param: DeletePostParameter = { uid };
 
-  return { param };
+	return { param };
 };
 
 export const postImplModules = {
-  create,
-  get,
-  getMany,
-  update,
-  delete: deletePost,
+	create,
+	get,
+	getMany,
+	update,
+	delete: deletePost,
 };

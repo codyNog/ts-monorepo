@@ -17,8 +17,8 @@ const CategoryNew = lazy(() => import("~/pages/categories/new"));
 const NotFound = lazy(() => import("~/pages/404"));
 
 export const Router = () => {
-  return (
-    <BrowserRouter>
+	return (
+		<BrowserRouter>
       <Layout>
         <Suspense>
           <Routes>
@@ -66,5 +66,5 @@ export const Router = () => {
         </Suspense>
       </Layout>
     </BrowserRouter>
-  );
+	);
 };

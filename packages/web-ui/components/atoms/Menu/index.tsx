@@ -1,22 +1,13 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  Menu as CMenu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemProps,
-  Button,
-} from "@chakra-ui/react";
+import { Menu as CMenu, MenuButton, MenuList, MenuItem, MenuItemProps, Button } from "@chakra-ui/react";
 import { MarginProps } from "../../style";
 
 type Menus = MenuItemProps & { key: string };
 
-type Props = MarginProps & {
-  menus: Menus[];
-};
+type Props = MarginProps & { menus: Menus[] };
 
 export const Menu = ({ menus }: Props) => (
-  <CMenu>
+	<CMenu>
     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
       Actions
     </MenuButton>

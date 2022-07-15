@@ -3,8 +3,8 @@ import React from "react";
 import { ComponentProvider } from "../../../../web-ui/components";
 
 const wrapper = ({ children }: { children: JSX.Element }) => {
-  return <ComponentProvider>{children}</ComponentProvider>;
+	return <ComponentProvider>{children}</ComponentProvider>;
 };
 
 export const render = (ui: JSX.Element, options?: any) =>
-  tRender(ui, { wrapper, ...options });
+	tRender(ui, { wrapper, ...options });

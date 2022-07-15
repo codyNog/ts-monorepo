@@ -7,19 +7,12 @@ import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps = MarginProps & {
-  href?: string;
-  post: Post;
-  onClickDeleteButton: (post: Post) => void;
-};
+type ItemProps =
+	& MarginProps
+	& { href?: string; post: Post; onClickDeleteButton: (post: Post) => void };
 
-const Item = ({
-  href,
-  post,
-  onClickDeleteButton,
-  ...marginProps
-}: ItemProps): JSX.Element => (
-  <Flex {...marginProps} alignItems={"center"}>
+const Item = ({ href, post, onClickDeleteButton, ...marginProps }: ItemProps): JSX.Element => (
+	<Flex {...marginProps} alignItems={"center"}>
     <Link href={href}>
       <Text>{post.title}</Text>
     </Link>
@@ -35,18 +28,15 @@ const Item = ({
 );
 
 type Props = {
-  href: (href: string) => string | undefined;
-  parameter?: GetPostsParameter;
+	href: (href: string) => string | undefined;
+	parameter?: GetPostsParameter;
 };
 
-export const PostList = ({
-  href,
-  parameter: parameterProps,
-}: Props): JSX.Element => {
-  const { posts, onClickDeleteButton, ...rest } = usePostList(parameterProps);
+export const PostList = ({ href, parameter: parameterProps }: Props): JSX.Element => {
+	const { posts, onClickDeleteButton, ...rest } = usePostList(parameterProps);
 
-  return (
-    <VStack>
+	return (
+		<VStack>
       <Accordion title={"投稿検索条件"}>
         <PostListForm {...rest} />
       </Accordion>
@@ -63,5 +53,5 @@ export const PostList = ({
           ))}
       </Scroll>
     </VStack>
-  );
+	);
 };
