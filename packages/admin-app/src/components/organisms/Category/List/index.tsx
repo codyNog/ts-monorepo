@@ -6,19 +6,18 @@ import { CategoryListForm } from "~/components/organisms/Category/List/Form";
 import { VStack, Scroll, Flex } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps = MarginProps & {
-  href?: string;
-  category: Category;
-  onClickDeleteButton: (category: Category) => void;
-};
+type ItemProps =
+	& MarginProps
+	& {
+		href?: string;
+		category: Category;
+		onClickDeleteButton: (category: Category) => void;
+	};
 
-const Item = ({
-  href,
-  category,
-  onClickDeleteButton,
-  ...marginProps
-}: ItemProps): JSX.Element => (
-  <Flex {...marginProps} alignItems={"center"}>
+const Item = (
+	{ href, category, onClickDeleteButton, ...marginProps }: ItemProps,
+): JSX.Element => (
+	<Flex {...marginProps} alignItems={"center"}>
     <Link href={href}>
       <Text>{category.name}</Text>
     </Link>
@@ -33,15 +32,13 @@ const Item = ({
   </Flex>
 );
 
-type Props = MarginProps & {
-  href: (href: string) => string | undefined;
-};
+type Props = MarginProps & { href: (href: string) => string | undefined };
 
 export const CategoryList = ({ href, ...marginProps }: Props): JSX.Element => {
-  const { categories, onClickDeleteButton, ...rest } = useCategoryList();
+	const { categories, onClickDeleteButton, ...rest } = useCategoryList();
 
-  return (
-    <VStack spacing={5} {...marginProps}>
+	return (
+		<VStack spacing={5} {...marginProps}>
       <Accordion title={"カテゴリー検索条件"}>
         <CategoryListForm {...rest} />
       </Accordion>
@@ -58,5 +55,5 @@ export const CategoryList = ({ href, ...marginProps }: Props): JSX.Element => {
           ))}
       </Scroll>
     </VStack>
-  );
+	);
 };

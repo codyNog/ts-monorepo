@@ -15,8 +15,8 @@ const category: Category = generateMock(zodCategory);
 const categories: Category[] = generateMock(z.array(zodCategory).length(3));
 
 export const mocks = {
-  user: { user, users },
-  post: { post, posts },
-  category: { category, categories },
-  seeds,
+	user: { user, users },
+	post: { post, posts },
+	category: { category, categories },
+	seeds,
 };

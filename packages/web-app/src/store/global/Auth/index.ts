@@ -5,15 +5,23 @@ import { useCallback } from "react";
 const meAtom = atom<User | undefined>(undefined);
 
 export const useAuth = () => {
-  const [me, setMe] = useAtom(meAtom);
+	const [me, setMe] = useAtom(meAtom);
 
-  const login = useCallback(async () => {
-    if (me) return;
-  }, [me]);
+	const login = useCallback(
+		async () => {
+			if (me) {
+				return;
+			}
+		},
+		[me],
+	);
 
-  const onSessionExpired = useCallback(async () => {
-    setMe(undefined);
-  }, [setMe]);
+	const onSessionExpired = useCallback(
+		async () => {
+			setMe(undefined);
+		},
+		[setMe],
+	);
 
-  return { me, login, onSessionExpired };
+	return { me, login, onSessionExpired };
 };

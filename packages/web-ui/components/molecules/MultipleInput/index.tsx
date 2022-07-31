@@ -7,36 +7,40 @@ import { MarginProps } from "../../style";
 
 const INITIAL_VALUE = "";
 
-type Props = MarginProps & {
-  value: string[];
-  submit: (value: string[]) => void;
-  onDelete: (value: string[]) => void;
-};
+type Props =
+	& MarginProps
+	& {
+		value: string[];
+		submit: (value: string[]) => void;
+		onDelete: (value: string[]) => void;
+	};
 
-export const MultipleInput = ({
-  value,
-  submit,
-  onDelete,
-  ...marginProps
-}: Props): JSX.Element => {
-  const [inputValue, setInputValue] = useState<string>(INITIAL_VALUE);
+export const MultipleInput = (
+	{ value, submit, onDelete, ...marginProps }: Props,
+): JSX.Element => {
+	const [inputValue, setInputValue] = useState<string>(INITIAL_VALUE);
 
-  const onSubmit = useCallback(() => {
-    if (value.includes(inputValue)) return;
-    submit(value.concat(inputValue));
-    setInputValue(INITIAL_VALUE);
-  }, [inputValue, submit, setInputValue]);
+	const onSubmit = useCallback(
+		() => {
+			if (value.includes(inputValue)) {
+				return;
+			}
+			submit(value.concat(inputValue));
+			setInputValue(INITIAL_VALUE);
+		},
+		[inputValue, submit, setInputValue],
+	);
 
-  const onDeleteTag = useCallback(
-    (tag: string) => {
-      const newValue = value.filter((elem) => elem !== tag);
-      onDelete(newValue);
-    },
-    [value, onDelete]
-  );
+	const onDeleteTag = useCallback(
+		(tag: string) => {
+			const newValue = value.filter((elem) => elem !== tag);
+			onDelete(newValue);
+		},
+		[value, onDelete],
+	);
 
-  return (
-    <Box {...marginProps}>
+	return (
+		<Box {...marginProps}>
       <Input
         value={inputValue}
         onChange={setInputValue}
@@ -50,5 +54,5 @@ export const MultipleInput = ({
         ))}
       </Box>
     </Box>
-  );
+	);
 };

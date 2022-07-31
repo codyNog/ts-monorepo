@@ -1,38 +1,25 @@
 import { Post } from "@my/shared/entities/Post";
-import {
-  AutoComplete,
-  Button,
-  Input,
-  Label,
-  Switch,
-  Tag,
-  Text,
-  TextArea,
-} from "@web/ui/components";
+import { AutoComplete, Button, Input, Label, Switch, Tag, Text, TextArea } from "@web/ui/components";
 import { Box, Form, VStack } from "@web/ui/components/layouts";
 import { MarginProps } from "@web/ui/components/style";
 import { usePostForm } from "~/store/components/organisms/Post/Form";
 
 type Props = MarginProps & { post?: Post; submit: (post: Post) => void };
 
-export const PostForm = ({
-  post: postProps,
-  submit,
-  ...marginProps
-}: Props): JSX.Element => {
-  const {
-    post,
-    onChangeTitle,
-    onChangeDescription,
-    onChangePublished,
-    onChangeBody,
-    addCategory,
-    removeCategory,
-    onChangeCategoryInput,
-  } = usePostForm(postProps);
+export const PostForm = ({ post: postProps, submit, ...marginProps }: Props): JSX.Element => {
+	const {
+		post,
+		onChangeTitle,
+		onChangeDescription,
+		onChangePublished,
+		onChangeBody,
+		addCategory,
+		removeCategory,
+		onChangeCategoryInput,
+	} = usePostForm(postProps);
 
-  return (
-    <Form {...marginProps}>
+	return (
+		<Form {...marginProps}>
       <VStack spacing={4}>
         <Text>記事作成</Text>
         <Label htmlFor={"title"} label={"タイトル"}>
@@ -72,5 +59,5 @@ export const PostForm = ({
         <Button onClick={() => submit(post)}>送信</Button>
       </VStack>
     </Form>
-  );
+	);
 };

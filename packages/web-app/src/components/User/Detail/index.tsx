@@ -2,15 +2,13 @@ import { User } from "@my/shared/entities/User";
 import { Avatar, Card } from "@web/ui/components";
 import { Box, Flex } from "@web/ui/components/layouts";
 
-type Props = {
-  user: User;
-};
+type Props = { user: User };
 
 export const UserDetail = ({ user }: Props): JSX.Element => {
-  const { name, profile } = user;
+	const { name, profile } = user;
 
-  return (
-    <Card>
+	return (
+		<Card>
       <Flex>{name}</Flex>
       {profile && (
         <Box>
@@ -18,5 +16,5 @@ export const UserDetail = ({ user }: Props): JSX.Element => {
         </Box>
       )}
     </Card>
-  );
+	);
 };

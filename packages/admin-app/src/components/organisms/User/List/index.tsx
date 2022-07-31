@@ -6,19 +6,12 @@ import { UserListForm } from "~/components/organisms/User/List/Form";
 import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps = MarginProps & {
-  href?: string;
-  user: User;
-  onClickDeleteButton: (user: User) => void;
-};
+type ItemProps =
+	& MarginProps
+	& { href?: string; user: User; onClickDeleteButton: (user: User) => void };
 
-const Item = ({
-  href,
-  user,
-  onClickDeleteButton,
-  ...marginProps
-}: ItemProps): JSX.Element => (
-  <Flex {...marginProps} alignItems={"center"}>
+const Item = ({ href, user, onClickDeleteButton, ...marginProps }: ItemProps): JSX.Element => (
+	<Flex {...marginProps} alignItems={"center"}>
     <Link href={href}>
       <Text>{user.name}</Text>
     </Link>
@@ -33,15 +26,13 @@ const Item = ({
   </Flex>
 );
 
-type Props = MarginProps & {
-  href: (href: string) => string | undefined;
-};
+type Props = MarginProps & { href: (href: string) => string | undefined };
 
 export const UserList = ({ href, ...marginProps }: Props): JSX.Element => {
-  const { users, onClickDeleteButton, ...rest } = useUserList();
+	const { users, onClickDeleteButton, ...rest } = useUserList();
 
-  return (
-    <VStack {...marginProps}>
+	return (
+		<VStack {...marginProps}>
       <Accordion title={"ユーザーの検索条件"}>
         <UserListForm {...rest} />
       </Accordion>
@@ -58,5 +49,5 @@ export const UserList = ({ href, ...marginProps }: Props): JSX.Element => {
           ))}
       </Scroll>
     </VStack>
-  );
+	);
 };

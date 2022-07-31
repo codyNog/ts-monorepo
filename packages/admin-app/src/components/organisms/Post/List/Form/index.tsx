@@ -6,62 +6,64 @@ import { AutoComplete, Label, Input, Button } from "@web/ui/components";
 import { initialState } from "~/constants/state";
 import { MarginProps } from "@web/ui/components/style";
 
-type FormProps = MarginProps & {
-  parameter: GetPostsParameter;
-  submit: (parameter: GetPostsParameter) => void;
-};
+type FormProps =
+	& MarginProps
+	& {
+		parameter: GetPostsParameter;
+		submit: (parameter: GetPostsParameter) => void;
+	};
 
-export const PostListForm = ({
-  parameter: parameterProps,
-  submit: onSubmit,
-  ...marginProps
-}: FormProps) => {
-  const [parameter, setParameter] = useState<GetPostsParameter>({
-    ...initialState.getPostsParameter,
-    ...parameterProps,
-  });
+export const PostListForm = (
+	{ parameter: parameterProps, submit: onSubmit, ...marginProps }: FormProps,
+) => {
+	const [parameter, setParameter] = useState<GetPostsParameter>({
+		...initialState.getPostsParameter,
+		...parameterProps,
+	});
 
-  const onChangeTitle = useCallback(
-    (title: string) => {
-      setParameter((prev: GetPostsParameter) => ({ ...prev, title }));
-    },
-    [setParameter]
-  );
+	const onChangeTitle = useCallback(
+		(title: string) => {
+			setParameter((prev: GetPostsParameter) => ({ ...prev, title }));
+		},
+		[setParameter],
+	);
 
-  const onChangeAuthorId = useCallback(
-    (authorId: string) => {
-      console.log("auth");
-      setParameter((prev: GetPostsParameter) => ({
-        ...prev,
-        authorId,
-      }));
-    },
-    [setParameter]
-  );
+	const onChangeAuthorId = useCallback(
+		(authorId: string) => {
+			console.log("auth");
+			setParameter((prev: GetPostsParameter) => ({ ...prev, authorId }));
+		},
+		[setParameter],
+	);
 
-  const loadOptions = useCallback(async (name: string) => {
-    const users = await backend.user.getMany({ name });
+	const loadOptions = useCallback(
+		async (name: string) => {
+			const users = await backend.user.getMany({ name });
 
-    return users.map((elem) => ({
-      ...elem,
-      value: elem.uid,
-      label: elem.name,
-    }));
-  }, []);
+			return users.map(
+				(elem) => ({ ...elem, value: elem.uid, label: elem.name }),
+			);
+		},
+		[],
+	);
 
-  const submit = useCallback(async () => {
-    onSubmit(parameter);
-  }, [parameter]);
+	const submit = useCallback(
+		async () => {
+			onSubmit(parameter);
+		},
+		[parameter],
+	);
 
-  const clear = useCallback(() => {
-    onSubmit({
-      ...initialState.getPostsParameter,
-    });
-    setParameter(initialState.getPostsParameter);
-  }, []);
+	const clear = useCallback(
+		() => {
+			onSubmit({ ...initialState.getPostsParameter });
+			setParameter(initialState.getPostsParameter);
+		},
+		[],
+	);
 
-  return (
-    <Form {...marginProps}>
+	return (
+		<Form {...marginProps}>
       <VStack spacing={4}>
         <Label htmlFor={"title"} label={"タイトル"}>
           <Input
@@ -81,5 +83,5 @@ export const PostListForm = ({
         <Button onClick={clear}>クリア</Button>
       </VStack>
     </Form>
-  );
+	);
 };

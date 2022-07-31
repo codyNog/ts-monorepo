@@ -3,15 +3,15 @@ import { z } from "zod";
 import { zodPost } from "../Post";
 
 export const zodUserProfile = z.object({
-  uid: z.string(),
-  biography: z.string(),
+	uid: z.string(),
+	biography: z.string(),
 });
 
 export const zodUser = z.object({
-  uid: z.string(),
-  name: z.string(),
-  posts: z.array(zodPost),
-  profile: zodUserProfile.nullable(),
+	uid: z.string(),
+	name: z.string(),
+	posts: z.array(zodPost),
+	profile: zodUserProfile.nullable(),
 });
 
 export type UserProfile = z.infer<typeof zodUserProfile>;

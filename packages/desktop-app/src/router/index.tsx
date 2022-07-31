@@ -4,8 +4,8 @@ import { RootPage } from "~/pages";
 import { PostsPage } from "~/pages/posts";
 
 export const Router = () => {
-  return (
-    <Layout>
+	return (
+		<Layout>
       <HashRouter>
         <Routes>
           <Route path={"/"} element={<RootPage />} />
@@ -13,5 +13,5 @@ export const Router = () => {
         </Routes>
       </HashRouter>
     </Layout>
-  );
+	);
 };

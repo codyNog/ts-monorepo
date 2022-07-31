@@ -3,8 +3,8 @@ import { Box, Center } from "@web/ui/components/layouts";
 import { Link } from "~/components/Link";
 
 export const RootPage = () => {
-  return (
-    <Center alignItems={"center"} h={"100%"}>
+	return (
+		<Center alignItems={"center"} h={"100%"}>
       <Center>
         <Box>
           <Image src={"/128x128.png"} />
@@ -14,5 +14,5 @@ export const RootPage = () => {
         </Box>
       </Center>
     </Center>
-  );
+	);
 };

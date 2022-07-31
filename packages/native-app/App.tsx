@@ -3,13 +3,13 @@ import { SafeAreaView } from "react-native";
 import { Navigation } from "~/navigation";
 
 const App = () => {
-  return (
-    <ComponentProvider>
+	return (
+		<ComponentProvider>
       <SafeAreaView>
         <Navigation />
       </SafeAreaView>
     </ComponentProvider>
-  );
+	);
 };
 
 // eslint-disable-next-line import/no-default-export

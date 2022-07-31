@@ -3,11 +3,11 @@ import { setupServer } from "msw/node";
 import { mswHandlers } from "./handlers";
 
 export const startTestWorker = () => {
-  const worker = setupWorker(...mswHandlers);
-  worker.start();
+	const worker = setupWorker(...mswHandlers);
+	worker.start();
 };
 
 export const startTestServer = () => {
-  const server = setupServer(...mswHandlers);
-  server.listen();
+	const server = setupServer(...mswHandlers);
+	server.listen();
 };

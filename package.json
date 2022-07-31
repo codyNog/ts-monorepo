@@ -11,7 +11,7 @@
     "dev:all": "pnpm --filter=./** dev",
     "dev:api": "pnpm --filter=./packages/api/** dev",
     "dev:web": "pnpm --filter=./packages/web-app/** dev",
-    "format": "rome format .",
+    "format": "rome format . --write",
     "preinstall": "npx only-allow pnpm",
     "interplay:admin": "pnpm --filter=./packages/admin-app/** interplay",
     "interplay:shared": "pnpm --filter=./packages/shared/** interplay",
