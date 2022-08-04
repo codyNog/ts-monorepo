@@ -36,7 +36,7 @@ export const CategoryImpl = {
 	delete: deleteCategory,
 };
 
-if (env.NODE_ENV === "test" && !!import.meta.vitest) {
+if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("../../../mocks");
 	const { startTestServer } = await import("../../libs/msw");

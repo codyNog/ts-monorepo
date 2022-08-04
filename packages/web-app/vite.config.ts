@@ -9,6 +9,7 @@ export default defineConfig({
 	test: {
 		includeSource: ["**/*.{js,ts}"],
 		exclude: ["vite.config.ts", "node_modules"],
+		environment: "happy-dom",
 	},
 	plugins: [react()],
 	resolve: { alias: { "~": fileURLToPath(new URL("./src", import.meta.url)) } },

@@ -7,7 +7,6 @@ export const Link = ({ href, children }: Props) => {
 	if (!href) {
 		return <CLink href={href}>{children}</CLink>;
 	}
-
 	return (
 		<RLink to={href}>
       <CLink>{children}</CLink>

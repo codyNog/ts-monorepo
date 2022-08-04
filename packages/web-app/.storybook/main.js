@@ -10,15 +10,19 @@ module.exports =
 		],
 		framework: "@storybook/react",
 		core: { builder: "@storybook/builder-vite" },
-		viteFinal: async (config) => {
+		webpackFinal: async (config) => {
+			config.module.rules.push({
+				test: /\.mjs$/,
+				include: /node_modules/,
+				type: "javascript/auto",
+			});
+
 			return {
 				...config,
 				resolve: {
 					...config.resolve,
-					dedupe: ["@storybook/client-api"],
 					alias: {
 						...config.resolve.alias,
-						"~": path.resolve(__dirname, "../src"),
 						"@emotion/core": path.resolve(
 							__dirname,
 							"../node_modules/@emotion/react",

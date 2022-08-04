@@ -7,6 +7,7 @@
     "build:admin": "pnpm --filter=./packages/admin-app/** build",
     "build:api": "pnpm --filter=./packages/api/** build",
     "build:service": "pnpm --filter=./packages/service/** build",
+    "depcheck": "pnpm --filter=./** depcheck",
     "dev:admin": "pnpm --filter=./packages/admin-app/** dev",
     "dev:all": "pnpm --filter=./** dev",
     "dev:api": "pnpm --filter=./packages/api/** dev",
@@ -21,7 +22,7 @@
     "pathpida": "pnpm --filter=./** pathpida",
     "prepare": "husky install",
     "prisma-gen": "pnpm ---filter=./packages/api/** prisma-gen",
-    "sort": "sort-package-json 'package.json' sort-package-json './packages/admin-app/package.json' sort-package-json './packages/api/package.json' sort-package-json './packages/shared/package.json' sort-package-json './packages/web-app/package.json'",
+    "sort": "pnpm --filter=./** sort",
     "storybook:admin": "pnpm --filter=./packages/admin-app/** storybook",
     "storybook:shared": "pnpm --filter=./packages/shared/** storybook",
     "test:admin": "pnpm --filter=./packages/admin-app/** test",
@@ -35,9 +36,7 @@
     "@typescript-eslint/parser": "5.22.0",
     "eslint": "^8.14.0",
     "eslint-config-next": "12.1.6",
-    "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
@@ -48,7 +47,7 @@
   },
   "packageManager": "pnpm@7.0.0",
   "engines": {
-    "node": "16.14.2",
-    "pnpm": "7.0.0"
+    "node": "16.16.0",
+    "pnpm": "7.8.0"
   }
 }

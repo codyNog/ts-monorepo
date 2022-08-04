@@ -23,10 +23,10 @@ export const usePostList = (parameterProps?: GetPostsParameter) => {
 	return { posts, parameter, submit, onClickDeleteButton };
 };
 
-if (!!import.meta.vitest) {
+if (import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("@my/shared/mocks");
-	const { renderHook } = await import("@testing-library/react-hooks");
+	const { renderHook, waitFor } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
 	describe(
@@ -39,16 +39,16 @@ if (!!import.meta.vitest) {
 			it(
 				"初期状態",
 				async () => {
-					const { result, waitForNextUpdate } = renderHook(usePostList);
+					const { result } = renderHook(usePostList);
 					expect<Post[] | undefined>(result.current.posts).toStrictEqual<
 						Post[] | undefined
 					>(undefined);
 
-					await waitForNextUpdate();
-
-					expect<Post[] | undefined>(result.current.posts).toStrictEqual<
-						Post[] | undefined
-					>(mocks.post.posts);
+					waitFor(() => {
+						expect<Post[] | undefined>(result.current.posts).toStrictEqual<
+							Post[] | undefined
+						>(mocks.post.posts);
+					});
 				},
 			);
 		},
