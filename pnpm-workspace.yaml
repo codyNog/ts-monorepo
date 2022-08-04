@@ -5,5 +5,6 @@ packages:
   - "packages/web-app/**"
   - "packages/admin-app/**"
   - "packages/native-app/**"
+  - "packages/web-design-sandbox/**"
   - "packages/web-ui/**"
   - "packages/native-ui/**"

@@ -1,0 +1,38 @@
+{
+  "name": "@web-design/sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006 --no-manager-cache"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "1.8.8",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "chakra-react-select": "3.3.7",
+    "framer-motion": "^6",
+    "@web/ui": "*"
+  },
+  "devDependencies": {
+    "@interplay/cli": "^2.1.1",
+    "@interplay/cli-plugin-react": "^2.1.1",
+    "@storybook/addon-actions": "^6.5.3",
+    "@storybook/addon-controls": "^6.5.3",
+    "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/addon-interactions": "^6.5.3",
+    "@storybook/addon-links": "^6.5.3",
+    "@storybook/builder-vite": "^0.1.35",
+    "@storybook/client-api": "^6.5.3",
+    "@storybook/react": "6.5.3",
+    "@storybook/testing-library": "^0.0.11",
+    "@testing-library/react": "^13.2.0",
+    "@types/node": "17.0.31",
+    "@types/react": "^18.0.9",
+    "react": "^18.1.0"
+  }
+}
