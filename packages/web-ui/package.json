@@ -7,13 +7,16 @@
   "main": "index.js",
   "scripts": {
     "depcheck": "depcheck",
-    "sort": "sort-package-json package.json"
+    "sort": "sort-package-json package.json",
+    "storybook": "start-storybook -p 6006 --no-manager-cache"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.0",
     "@chakra-ui/react": "1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@radix-ui/react-select": "^1.0.0",
+    "@stitches/react": "^1.2.8",
     "chakra-react-select": "3.3.7",
     "framer-motion": "^6"
   },
