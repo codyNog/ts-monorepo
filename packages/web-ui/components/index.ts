@@ -1,3 +1,5 @@
+export * from "@chakra-ui/react";
+
 // components-atoms
 export { Accordion } from "./atoms/Accordion";
 export { AutoComplete } from "./atoms/AutoComplete";

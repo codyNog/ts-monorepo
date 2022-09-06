@@ -48,6 +48,6 @@
   "packageManager": "pnpm@7.0.0",
   "engines": {
     "node": "16.16.0",
-    "pnpm": "7.5.1"
+    "pnpm": "7.8.0"
   }
 }
