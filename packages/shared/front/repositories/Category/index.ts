@@ -1,6 +1,9 @@
 import { Category } from "../../../entities/Category";
 import { v1Client } from "../../libs/aspida";
-import { CreateCategoryBody, UpdateCategoryBody } from "../../../api/Category/bodies";
+import {
+	CreateCategoryBody,
+	UpdateCategoryBody,
+} from "../../../api/Category/bodies";
 import { UpdateCategoryParameter } from "../../../api/Category/parameters";
 import { GetCategoriesQuery } from "../../../api/Category/queries";
 import { env } from "../../env";
@@ -40,28 +43,19 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("../../../mocks");
 	const { startTestServer } = await import("../../libs/msw");
-	describe(
-		"categoryImpl",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("categoryImpl", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"get",
-				async () => {
-					const category = await CategoryImpl.get("foo");
-					expect(category).toStrictEqual(mocks.category.category);
-				},
-			);
+		it("get", async () => {
+			const category = await CategoryImpl.get("foo");
+			expect(category).toStrictEqual(mocks.category.category);
+		});
 
-			it(
-				"getMany",
-				async () => {
-					const category = await CategoryImpl.getMany();
-					expect(category).toStrictEqual(mocks.category.categories);
-				},
-			);
-		},
-	);
+		it("getMany", async () => {
+			const category = await CategoryImpl.getMany();
+			expect(category).toStrictEqual(mocks.category.categories);
+		});
+	});
 }

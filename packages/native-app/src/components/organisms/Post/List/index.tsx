@@ -11,8 +11,8 @@ type ItemProps = { post: Post };
 const Item = ({ post }: ItemProps) => {
 	return (
 		<Box>
-      <Text>{post.title}</Text>
-    </Box>
+			<Text>{post.title}</Text>
+		</Box>
 	);
 };
 
@@ -23,15 +23,17 @@ export const PostList = ({ parameter: parameterProps }: Props): JSX.Element => {
 
 	return (
 		<Box>
-      <PostListForm submit={submit} />
-      {!posts && null}
-      {posts && (
-        <VStack space={2}>
-          {posts.map((elem) => (
-            <Item key={elem.uid} post={elem} />
-          ))}
-        </VStack>
-      )}
-    </Box>
+			<PostListForm submit={submit} />
+			{!posts && null}
+			{posts && (
+				<VStack space={2}>
+					{posts.map(
+						(elem) => (
+							<Item key={elem.uid} post={elem} />
+						),
+					)}
+				</VStack>
+			)}
+		</Box>
 	);
 };

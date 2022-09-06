@@ -10,20 +10,25 @@ type ItemProps =
 	& MarginProps
 	& { href?: string; user: User; onClickDeleteButton: (user: User) => void };
 
-const Item = ({ href, user, onClickDeleteButton, ...marginProps }: ItemProps): JSX.Element => (
+const Item = ({
+	href,
+	user,
+	onClickDeleteButton,
+	...marginProps
+}: ItemProps): JSX.Element => (
 	<Flex {...marginProps} alignItems={"center"}>
-    <Link href={href}>
-      <Text>{user.name}</Text>
-    </Link>
-    <Button
-      color={"white"}
-      bgColor={"red"}
-      onClick={() => onClickDeleteButton(user)}
-      ml={"auto"}
-    >
-      削除
-    </Button>
-  </Flex>
+		<Link href={href}>
+			<Text>{user.name}</Text>
+		</Link>
+		<Button
+			color={"white"}
+			bgColor={"red"}
+			onClick={() => onClickDeleteButton(user)}
+			ml={"auto"}
+		>
+			削除
+		</Button>
+	</Flex>
 );
 
 type Props = MarginProps & { href: (href: string) => string | undefined };
@@ -33,21 +38,23 @@ export const UserList = ({ href, ...marginProps }: Props): JSX.Element => {
 
 	return (
 		<VStack {...marginProps}>
-      <Accordion title={"ユーザーの検索条件"}>
-        <UserListForm {...rest} />
-      </Accordion>
-      <Scroll>
-        {!users && <CenteredSpinner />}
-        {users &&
-          users.map((elem) => (
-            <Item
-              key={elem.uid}
-              href={href(elem.uid)}
-              user={elem}
-              onClickDeleteButton={onClickDeleteButton}
-            />
-          ))}
-      </Scroll>
-    </VStack>
+			<Accordion title={"ユーザーの検索条件"}>
+				<UserListForm {...rest} />
+			</Accordion>
+			<Scroll>
+				{!users && <CenteredSpinner />}
+				{users &&
+					users.map(
+						(elem) => (
+							<Item
+								key={elem.uid}
+								href={href(elem.uid)}
+								user={elem}
+								onClickDeleteButton={onClickDeleteButton}
+							/>
+						),
+					)}
+			</Scroll>
+		</VStack>
 	);
 };

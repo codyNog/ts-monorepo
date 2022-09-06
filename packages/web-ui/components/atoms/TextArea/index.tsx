@@ -5,5 +5,8 @@ type Props =
 	& { onChange: (value: string) => void };
 
 export const TextArea = (props: Props) => (
-	<CTextArea {...props} onChange={(e) => props.onChange(e.currentTarget.value)} />
+	<CTextArea
+		{...props}
+		onChange={(e) => props.onChange(e.currentTarget.value)}
+	/>
 );

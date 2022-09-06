@@ -5,12 +5,9 @@ import { useRouter } from "~/store/util/Router";
 export const useRootPage = () => {
 	const { push } = useRouter();
 
-	const onSubmit = useCallback(
-		() => {
-			push(pagesPath.posts.$url().pathname);
-		},
-		[push],
-	);
+	const onSubmit = useCallback(() => {
+		push(pagesPath.posts.$url().pathname);
+	}, [push]);
 
 	return { onSubmit };
 };

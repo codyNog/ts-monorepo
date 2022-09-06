@@ -2,7 +2,10 @@ import { FastifyInstance } from "fastify";
 import { routing } from "~/constants/routing";
 import { backend } from "~/domain/backend";
 import { Post, postSchema, postsSchema } from "@my/shared/entities/post";
-import { GetPostsQuery, getPostsQuerySchema } from "@my/shared/api/Post/queries";
+import {
+	GetPostsQuery,
+	getPostsQuerySchema,
+} from "@my/shared/api/Post/queries";
 import { postUidRouter } from "~/router/v1/posts/uid";
 import { createPostBodySchema } from "@my/shared/api/Post/bodies";
 

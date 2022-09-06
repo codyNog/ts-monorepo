@@ -14,9 +14,11 @@ export const PostList = ({ parameter }: Props) => {
 
 	return (
 		<VStack>
-      {posts.map((elem) => (
-        <Card key={elem.uid}>{elem.title}</Card>
-      ))}
-    </VStack>
+			{posts.map(
+				(elem) => (
+					<Card key={elem.uid}>{elem.title}</Card>
+				),
+			)}
+		</VStack>
 	);
 };

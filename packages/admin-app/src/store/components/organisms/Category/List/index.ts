@@ -36,28 +36,22 @@ if (import.meta.vitest) {
 	const { renderHook, waitFor } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"useCategoryList",
-		() => {
-			beforeAll(() => {
-				startTestServer();
+	describe("useCategoryList", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
+
+		it("初期状態", async () => {
+			const { result } = renderHook(useCategoryList);
+			expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+				Category[] | undefined
+			>(undefined);
+
+			waitFor(() => {
+				expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+					Category[] | undefined
+				>(mocks.category.categories);
 			});
-
-			it(
-				"初期状態",
-				async () => {
-					const { result } = renderHook(useCategoryList);
-					expect<Category[] | undefined>(result.current.categories).toStrictEqual<
-						Category[] | undefined
-					>(undefined);
-
-					waitFor(() => {
-						expect<Category[] | undefined>(result.current.categories).toStrictEqual<
-							Category[] | undefined
-						>(mocks.category.categories);
-					});
-				},
-			);
-		},
-	);
+		});
+	});
 }

@@ -11,9 +11,11 @@ type FormProps =
 		submit: (parameter: GetUsersParameter) => void;
 	};
 
-export const UserListForm = (
-	{ parameter: parameterProps, submit: onSubmit, ...marginProps }: FormProps,
-) => {
+export const UserListForm = ({
+	parameter: parameterProps,
+	submit: onSubmit,
+	...marginProps
+}: FormProps) => {
 	const [parameter, setParameter] = useState<GetUsersParameter>(parameterProps);
 
 	const onChangeName = useCallback(
@@ -23,25 +25,22 @@ export const UserListForm = (
 		[setParameter],
 	);
 
-	const submit = useCallback(
-		async () => {
-			onSubmit(parameter);
-		},
-		[parameter],
-	);
+	const submit = useCallback(async () => {
+		onSubmit(parameter);
+	}, [parameter]);
 
 	return (
 		<Form {...marginProps}>
-      <VStack>
-        <Label htmlFor={"name"} label={"名前"}>
-          <Input
-            id={"name"}
-            value={parameter.name || ""}
-            onChange={onChangeName}
-          />
-        </Label>
-        <Button onClick={submit}>送信</Button>
-      </VStack>
-    </Form>
+			<VStack>
+				<Label htmlFor={"name"} label={"名前"}>
+					<Input
+						id={"name"}
+						value={parameter.name || ""}
+						onChange={onChangeName}
+					/>
+				</Label>
+				<Button onClick={submit}>送信</Button>
+			</VStack>
+		</Form>
 	);
 };

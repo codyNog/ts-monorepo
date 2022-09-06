@@ -1,8 +1,15 @@
 import { FastifyInstance } from "fastify";
 import { routing } from "~/constants/routing";
 import { backend } from "~/domain/backend";
-import { Category, categorySchema, categoriesSchema } from "@my/shared/entities/category";
-import { GetCategoriesQuery, getCategoriesQuerySchema } from "@my/shared/api/Category/queries";
+import {
+	Category,
+	categorySchema,
+	categoriesSchema,
+} from "@my/shared/entities/category";
+import {
+	GetCategoriesQuery,
+	getCategoriesQuerySchema,
+} from "@my/shared/api/Category/queries";
 import { categoryUidRouter } from "~/router/v1/categories/uid";
 import { createCategoryBodySchema } from "@my/shared/api/Category/bodies";
 
@@ -49,7 +56,9 @@ const rootRouter = async (fastify: FastifyInstance): Promise<void> => {
 	get(fastify);
 };
 
-export const categoriesRouter = async (fastify: FastifyInstance): Promise<void> => {
+export const categoriesRouter = async (
+	fastify: FastifyInstance,
+): Promise<void> => {
 	rootRouter(fastify);
 	categoryUidRouter(fastify);
 };

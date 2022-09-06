@@ -18,8 +18,8 @@ export const PostListForm = ({ submit }: Props): JSX.Element => {
 
 	return (
 		<VStack space={2}>
-      <Input value={parameter.title} onChangeText={onChangeTitle} />
-      <Button onPress={() => submit(parameter)} />
-    </VStack>
+			<Input value={parameter.title} onChangeText={onChangeTitle} />
+			<Button onPress={() => submit(parameter)} />
+		</VStack>
 	);
 };

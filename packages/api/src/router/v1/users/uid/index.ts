@@ -68,7 +68,9 @@ const deleteUser = async (fastify: FastifyInstance): Promise<void> => {
 	);
 };
 
-export const userUidRouter = async (fastify: FastifyInstance): Promise<void> => {
+export const userUidRouter = async (
+	fastify: FastifyInstance,
+): Promise<void> => {
 	get(fastify);
 	put(fastify);
 	deleteUser(fastify);

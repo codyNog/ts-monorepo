@@ -68,7 +68,9 @@ const deleteCategory = async (fastify: FastifyInstance): Promise<void> => {
 	);
 };
 
-export const categoryUidRouter = async (fastify: FastifyInstance): Promise<void> => {
+export const categoryUidRouter = async (
+	fastify: FastifyInstance,
+): Promise<void> => {
 	get(fastify);
 	put(fastify);
 	deleteCategory(fastify);

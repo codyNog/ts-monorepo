@@ -1,4 +1,9 @@
-import { Tag as CTag, TagCloseButton, TagLabel, TagProps } from "@chakra-ui/react";
+import {
+	Tag as CTag,
+	TagCloseButton,
+	TagLabel,
+	TagProps,
+} from "@chakra-ui/react";
 
 type Props = TagProps & { onClose?: () => void };
 
@@ -7,8 +12,8 @@ export const Tag = (props: Props): JSX.Element => {
 
 	return (
 		<CTag {...props}>
-      <TagLabel>{props.children}</TagLabel>
-      {onClose && <TagCloseButton onClick={onClose} />}
-    </CTag>
+			<TagLabel>{props.children}</TagLabel>
+			{onClose && <TagCloseButton onClick={onClose} />}
+		</CTag>
 	);
 };

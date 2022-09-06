@@ -3,7 +3,10 @@ import { routing } from "~/constants/routing";
 import { backend } from "~/domain/backend";
 import { User, userSchema, usersSchema } from "@my/shared/entities/User";
 import { userUidRouter } from "~/router/v1/users/uid";
-import { getUsersQuerySchema, GetUsersQuery } from "@my/shared/api/User/queries";
+import {
+	getUsersQuerySchema,
+	GetUsersQuery,
+} from "@my/shared/api/User/queries";
 import { createUserBodySchema } from "@my/shared/api/User/bodies";
 
 const post = async (fastify: FastifyInstance): Promise<void> => {

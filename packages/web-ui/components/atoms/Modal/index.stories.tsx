@@ -4,6 +4,6 @@ export default { title: "atoms/Modal" };
 
 export const Modal = () => (
 	<Component isOpen onClose={() => {}}>
-    aaaa
-  </Component>
+		aaaa
+	</Component>
 );

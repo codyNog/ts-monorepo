@@ -8,17 +8,17 @@ type Props<T> = {
 	loadOptions: (value: string) => Promise<T[]>;
 };
 
-export const AutoComplete = <T extends AutoCompleteOption>(
-	{ id, onChange, loadOptions }: Props<T>,
-): JSX.Element => (
+export const AutoComplete = <T extends AutoCompleteOption>({
+	id,
+	onChange,
+	loadOptions,
+}: Props<T>): JSX.Element => (
 	<AsyncSelect
 		id={id}
 		loadOptions={loadOptions}
-		onChange={
-			(e) => {
-				onChange(e as T);
-			}
-		}
+		onChange={(e) => {
+			onChange(e as T);
+		}}
 		chakraStyles={{
 			menu: (provided) => ({ ...provided, position: "relative" }),
 		}}

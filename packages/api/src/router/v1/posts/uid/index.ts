@@ -74,7 +74,9 @@ const deletePost = async (fastify: FastifyInstance): Promise<void> => {
 	);
 };
 
-export const postUidRouter = async (fastify: FastifyInstance): Promise<void> => {
+export const postUidRouter = async (
+	fastify: FastifyInstance,
+): Promise<void> => {
 	get(fastify);
 	put(fastify);
 	deletePost(fastify);

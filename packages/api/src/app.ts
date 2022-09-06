@@ -6,15 +6,12 @@ import { env } from "~/constants/env";
 import cors from "@fastify/cors";
 
 const server = fastify({ logger: true });
-server.addHook(
-	"onRoute",
-	(opts) => {
-		if (opts.path === "/api/health") {
-			// @ts-ignore silent は Fastify で用意されているログレベルに存在しない
-			opts.logLevel = "silent";
-		}
-	},
-);
+server.addHook("onRoute", (opts) => {
+	if (opts.path === "/api/health") {
+		// @ts-ignore silent は Fastify で用意されているログレベルに存在しない
+		opts.logLevel = "silent";
+	}
+});
 
 server.register(cors, { origin: "*" });
 

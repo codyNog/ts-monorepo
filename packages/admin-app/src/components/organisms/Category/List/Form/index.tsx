@@ -11,12 +11,13 @@ type Props =
 		submit: (parameter: GetCategoriesParameter) => void;
 	};
 
-export const CategoryListForm = (
-	{ parameter: parameterProps, submit: onSubmit, ...marginProps }: Props,
-) => {
-	const [parameter, setParameter] = useState<GetCategoriesParameter>(
-		parameterProps,
-	);
+export const CategoryListForm = ({
+	parameter: parameterProps,
+	submit: onSubmit,
+	...marginProps
+}: Props) => {
+	const [parameter, setParameter] =
+		useState<GetCategoriesParameter>(parameterProps);
 
 	const onChangeName = useCallback(
 		(name: string) => {
@@ -25,25 +26,22 @@ export const CategoryListForm = (
 		[setParameter],
 	);
 
-	const submit = useCallback(
-		async () => {
-			onSubmit(parameter);
-		},
-		[onSubmit, parameter],
-	);
+	const submit = useCallback(async () => {
+		onSubmit(parameter);
+	}, [onSubmit, parameter]);
 
 	return (
 		<Form {...marginProps}>
-      <VStack>
-        <Label htmlFor={"name"} label={"名前"}>
-          <Input
-            id={"name"}
-            value={parameter.name || ""}
-            onChange={onChangeName}
-          />
-        </Label>
-        <Button onClick={submit}>送信</Button>
-      </VStack>
-    </Form>
+			<VStack>
+				<Label htmlFor={"name"} label={"名前"}>
+					<Input
+						id={"name"}
+						value={parameter.name || ""}
+						onChange={onChangeName}
+					/>
+				</Label>
+				<Button onClick={submit}>送信</Button>
+			</VStack>
+		</Form>
 	);
 };

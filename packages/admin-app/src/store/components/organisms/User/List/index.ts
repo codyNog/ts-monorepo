@@ -31,28 +31,22 @@ if (import.meta.vitest) {
 	const { renderHook, waitFor } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"useUserList",
-		() => {
-			beforeAll(() => {
-				startTestServer();
+	describe("useUserList", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
+
+		it("初期状態", async () => {
+			const { result } = renderHook(useUserList);
+			expect<User[] | undefined>(result.current.users).toStrictEqual<
+				User[] | undefined
+			>(undefined);
+
+			waitFor(() => {
+				expect<User[] | undefined>(result.current.users).toStrictEqual<
+					User[] | undefined
+				>(mocks.user.users);
 			});
-
-			it(
-				"初期状態",
-				async () => {
-					const { result } = renderHook(useUserList);
-					expect<User[] | undefined>(result.current.users).toStrictEqual<
-						User[] | undefined
-					>(undefined);
-
-					waitFor(() => {
-						expect<User[] | undefined>(result.current.users).toStrictEqual<
-							User[] | undefined
-						>(mocks.user.users);
-					});
-				},
-			);
-		},
-	);
+		});
+	});
 }

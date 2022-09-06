@@ -8,8 +8,8 @@ export const parameters = {
 const withThemeProvider = (Story, context) => {
 	return (
 		<ComponentProvider>
-      <Story {...context} />
-    </ComponentProvider>
+			<Story {...context} />
+		</ComponentProvider>
 	);
 };
 export const decorators = [withThemeProvider];

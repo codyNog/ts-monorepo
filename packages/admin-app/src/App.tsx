@@ -4,8 +4,8 @@ import { ComponentProvider } from "@web/ui/components";
 const App = () => {
 	return (
 		<ComponentProvider>
-      <Router />
-    </ComponentProvider>
+			<Router />
+		</ComponentProvider>
 	);
 };
 

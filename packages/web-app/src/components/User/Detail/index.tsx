@@ -9,12 +9,12 @@ export const UserDetail = ({ user }: Props): JSX.Element => {
 
 	return (
 		<Card>
-      <Flex>{name}</Flex>
-      {profile && (
-        <Box>
-          <Avatar src={profile.biography} />
-        </Box>
-      )}
-    </Card>
+			<Flex>{name}</Flex>
+			{profile && (
+				<Box>
+					<Avatar src={profile.biography} />
+				</Box>
+			)}
+		</Card>
 	);
 };

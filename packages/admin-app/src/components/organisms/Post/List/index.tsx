@@ -11,20 +11,25 @@ type ItemProps =
 	& MarginProps
 	& { href?: string; post: Post; onClickDeleteButton: (post: Post) => void };
 
-const Item = ({ href, post, onClickDeleteButton, ...marginProps }: ItemProps): JSX.Element => (
+const Item = ({
+	href,
+	post,
+	onClickDeleteButton,
+	...marginProps
+}: ItemProps): JSX.Element => (
 	<Flex {...marginProps} alignItems={"center"}>
-    <Link href={href}>
-      <Text>{post.title}</Text>
-    </Link>
-    <Button
-      color={"white"}
-      bgColor={"red"}
-      onClick={() => onClickDeleteButton(post)}
-      ml={"auto"}
-    >
-      削除
-    </Button>
-  </Flex>
+		<Link href={href}>
+			<Text>{post.title}</Text>
+		</Link>
+		<Button
+			color={"white"}
+			bgColor={"red"}
+			onClick={() => onClickDeleteButton(post)}
+			ml={"auto"}
+		>
+			削除
+		</Button>
+	</Flex>
 );
 
 type Props = {
@@ -32,26 +37,31 @@ type Props = {
 	parameter?: GetPostsParameter;
 };
 
-export const PostList = ({ href, parameter: parameterProps }: Props): JSX.Element => {
+export const PostList = ({
+	href,
+	parameter: parameterProps,
+}: Props): JSX.Element => {
 	const { posts, onClickDeleteButton, ...rest } = usePostList(parameterProps);
 
 	return (
 		<VStack>
-      <Accordion title={"投稿検索条件"}>
-        <PostListForm {...rest} />
-      </Accordion>
-      <Scroll>
-        {!posts && <CenteredSpinner />}
-        {posts &&
-          posts.map((elem) => (
-            <Item
-              key={elem.uid}
-              href={href(elem.uid)}
-              post={elem}
-              onClickDeleteButton={onClickDeleteButton}
-            />
-          ))}
-      </Scroll>
-    </VStack>
+			<Accordion title={"投稿検索条件"}>
+				<PostListForm {...rest} />
+			</Accordion>
+			<Scroll>
+				{!posts && <CenteredSpinner />}
+				{posts &&
+					posts.map(
+						(elem) => (
+							<Item
+								key={elem.uid}
+								href={href(elem.uid)}
+								post={elem}
+								onClickDeleteButton={onClickDeleteButton}
+							/>
+						),
+					)}
+			</Scroll>
+		</VStack>
 	);
 };

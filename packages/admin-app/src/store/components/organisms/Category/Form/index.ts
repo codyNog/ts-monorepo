@@ -23,43 +23,31 @@ if (import.meta.vitest) {
 	const { renderHook } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"useCategoryForm()",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("useCategoryForm()", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(() => useCategoryForm());
-					expect<Category>(result.current.category).toStrictEqual<Category>(
-						initialState.category,
-					);
-				},
+		it("初期状態", () => {
+			const { result } = renderHook(() => useCategoryForm());
+			expect<Category>(result.current.category).toStrictEqual<Category>(
+				initialState.category,
 			);
-		},
-	);
+		});
+	});
 
-	describe(
-		"useCategoryForm(mocks.category.category)",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("useCategoryForm(mocks.category.category)", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(
-						() => useCategoryForm(mocks.category.category),
-					);
-					expect<Category>(result.current.category).toStrictEqual<Category>(
-						mocks.category.category,
-					);
-				},
+		it("初期状態", () => {
+			const { result } = renderHook(
+				() => useCategoryForm(mocks.category.category),
 			);
-		},
-	);
+			expect<Category>(result.current.category).toStrictEqual<Category>(
+				mocks.category.category,
+			);
+		});
+	});
 }

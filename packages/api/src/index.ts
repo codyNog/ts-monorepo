@@ -7,12 +7,10 @@ if (env.SENTRY_DSN) {
 }
 
 const start = async (): Promise<void> => {
-	await server
-		.listen(env.PORT, "0.0.0.0")
-		.catch((err) => {
-			server.log.error(String(err));
-			process.exit(1);
-		});
+	await server.listen(env.PORT, "0.0.0.0").catch((err) => {
+		server.log.error(String(err));
+		process.exit(1);
+	});
 	server.log.info(`server start`);
 };
 

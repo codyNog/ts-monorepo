@@ -8,10 +8,10 @@ export const parameters = {
 const withChakra = (StoryFn: Function) => {
 	return (
 		<ComponentProvider>
-      <div id="story-wrapper" style={{ minHeight: "100vh" }}>
-        <StoryFn />
-      </div>
-    </ComponentProvider>
+			<div id="story-wrapper" style={{ minHeight: "100vh" }}>
+				<StoryFn />
+			</div>
+		</ComponentProvider>
 	);
 };
 

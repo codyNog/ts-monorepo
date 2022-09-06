@@ -13,9 +13,11 @@ type FormProps =
 		submit: (parameter: GetPostsParameter) => void;
 	};
 
-export const PostListForm = (
-	{ parameter: parameterProps, submit: onSubmit, ...marginProps }: FormProps,
-) => {
+export const PostListForm = ({
+	parameter: parameterProps,
+	submit: onSubmit,
+	...marginProps
+}: FormProps) => {
 	const [parameter, setParameter] = useState<GetPostsParameter>({
 		...initialState.getPostsParameter,
 		...parameterProps,
@@ -36,52 +38,43 @@ export const PostListForm = (
 		[setParameter],
 	);
 
-	const loadOptions = useCallback(
-		async (name: string) => {
-			const users = await backend.user.getMany({ name });
+	const loadOptions = useCallback(async (name: string) => {
+		const users = await backend.user.getMany({ name });
 
-			return users.map(
-				(elem) => ({ ...elem, value: elem.uid, label: elem.name }),
-			);
-		},
-		[],
-	);
+		return users.map(
+			(elem) => ({ ...elem, value: elem.uid, label: elem.name }),
+		);
+	}, []);
 
-	const submit = useCallback(
-		async () => {
-			onSubmit(parameter);
-		},
-		[parameter],
-	);
+	const submit = useCallback(async () => {
+		onSubmit(parameter);
+	}, [parameter]);
 
-	const clear = useCallback(
-		() => {
-			onSubmit({ ...initialState.getPostsParameter });
-			setParameter(initialState.getPostsParameter);
-		},
-		[],
-	);
+	const clear = useCallback(() => {
+		onSubmit({ ...initialState.getPostsParameter });
+		setParameter(initialState.getPostsParameter);
+	}, []);
 
 	return (
 		<Form {...marginProps}>
-      <VStack spacing={4}>
-        <Label htmlFor={"title"} label={"タイトル"}>
-          <Input
-            id={"title"}
-            value={parameter.title || ""}
-            onChange={onChangeTitle}
-          />
-        </Label>
-        <Label htmlFor={"authorId"} label={"著者"}>
-          <AutoComplete
-            id={"authorId"}
-            loadOptions={loadOptions}
-            onChange={(user) => onChangeAuthorId(user.uid)}
-          />
-        </Label>
-        <Button onClick={submit}>送信</Button>
-        <Button onClick={clear}>クリア</Button>
-      </VStack>
-    </Form>
+			<VStack spacing={4}>
+				<Label htmlFor={"title"} label={"タイトル"}>
+					<Input
+						id={"title"}
+						value={parameter.title || ""}
+						onChange={onChangeTitle}
+					/>
+				</Label>
+				<Label htmlFor={"authorId"} label={"著者"}>
+					<AutoComplete
+						id={"authorId"}
+						loadOptions={loadOptions}
+						onChange={(user) => onChangeAuthorId(user.uid)}
+					/>
+				</Label>
+				<Button onClick={submit}>送信</Button>
+				<Button onClick={clear}>クリア</Button>
+			</VStack>
+		</Form>
 	);
 };

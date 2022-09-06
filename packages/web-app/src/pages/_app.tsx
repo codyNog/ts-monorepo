@@ -6,8 +6,8 @@ import { ComponentProvider } from "@web/ui/components";
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ComponentProvider>
-      <Component {...pageProps} />
-    </ComponentProvider>
+			<Component {...pageProps} />
+		</ComponentProvider>
 	);
 }
 

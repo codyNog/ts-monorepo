@@ -20,12 +20,9 @@ export const useLoginForm = (onSubmit: (parameter: LoginParmeter) => void) => {
 		[setParameter],
 	);
 
-	const submit = useCallback(
-		() => {
-			onSubmit(parameter);
-		},
-		[onSubmit, parameter],
-	);
+	const submit = useCallback(() => {
+		onSubmit(parameter);
+	}, [onSubmit, parameter]);
 
 	return { parameter, onChangeName, onChangePassword, submit };
 };

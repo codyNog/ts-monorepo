@@ -15,7 +15,10 @@ export const useUserForm = (userProps?: User) => {
 	const onChangeBiography = useCallback(
 		(biography: string) => {
 			setUser((prev) => {
-				return { ...prev, profile: { uid: prev.profile?.uid || "", biography } };
+				return {
+					...prev,
+					profile: { uid: prev.profile?.uid || "", biography },
+				};
 			});
 		},
 		[setUser],
@@ -30,39 +33,25 @@ if (import.meta.vitest) {
 	const { renderHook } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"useCategoryForm()",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("useCategoryForm()", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(() => useUserForm());
-					expect<User>(result.current.user).toStrictEqual<User>(
-						initialState.user,
-					);
-				},
-			);
-		},
-	);
+		it("初期状態", () => {
+			const { result } = renderHook(() => useUserForm());
+			expect<User>(result.current.user).toStrictEqual<User>(initialState.user);
+		});
+	});
 
-	describe(
-		"useCategoryForm(mocks.user.user)",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("useCategoryForm(mocks.user.user)", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(() => useUserForm(mocks.user.user));
-					expect<User>(result.current.user).toStrictEqual<User>(mocks.user.user);
-				},
-			);
-		},
-	);
+		it("初期状態", () => {
+			const { result } = renderHook(() => useUserForm(mocks.user.user));
+			expect<User>(result.current.user).toStrictEqual<User>(mocks.user.user);
+		});
+	});
 }

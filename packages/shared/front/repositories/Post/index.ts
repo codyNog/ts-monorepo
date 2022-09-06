@@ -36,28 +36,19 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { mocks } = await import("../../../mocks");
 	const { startTestServer } = await import("../../libs/msw");
 
-	describe(
-		"postImpl",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("postImpl", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"get",
-				async () => {
-					const post = await PostImpl.get("foo");
-					expect(post).toStrictEqual(mocks.post.post);
-				},
-			);
+		it("get", async () => {
+			const post = await PostImpl.get("foo");
+			expect(post).toStrictEqual(mocks.post.post);
+		});
 
-			it(
-				"getMany",
-				async () => {
-					const post = await PostImpl.getMany();
-					expect(post).toStrictEqual(mocks.post.posts);
-				},
-			);
-		},
-	);
+		it("getMany", async () => {
+			const post = await PostImpl.getMany();
+			expect(post).toStrictEqual(mocks.post.posts);
+		});
+	});
 }

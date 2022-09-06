@@ -9,12 +9,17 @@ type Props =
 		children: React.ReactNode;
 	};
 
-export const Checkbox = ({ checked, onChange, children, ...marginProps }: Props) => (
+export const Checkbox = ({
+	checked,
+	onChange,
+	children,
+	...marginProps
+}: Props) => (
 	<CCheckBox
-    checked={checked}
-    onChange={(e) => onChange(e.currentTarget.checked)}
-    {...marginProps}
-  >
-    {children}
-  </CCheckBox>
+		checked={checked}
+		onChange={(e) => onChange(e.currentTarget.checked)}
+		{...marginProps}
+	>
+		{children}
+	</CCheckBox>
 );

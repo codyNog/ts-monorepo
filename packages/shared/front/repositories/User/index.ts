@@ -36,28 +36,19 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { mocks } = await import("../../../mocks");
 	const { startTestServer } = await import("../../libs/msw");
 
-	describe(
-		"userImpl",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("userImpl", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"get",
-				async () => {
-					const user = await UserImpl.get("foo");
-					expect(user).toStrictEqual(mocks.user.user);
-				},
-			);
+		it("get", async () => {
+			const user = await UserImpl.get("foo");
+			expect(user).toStrictEqual(mocks.user.user);
+		});
 
-			it(
-				"getMany",
-				async () => {
-					const user = await UserImpl.getMany();
-					expect(user).toStrictEqual(mocks.user.users);
-				},
-			);
-		},
-	);
+		it("getMany", async () => {
+			const user = await UserImpl.getMany();
+			expect(user).toStrictEqual(mocks.user.users);
+		});
+	});
 }

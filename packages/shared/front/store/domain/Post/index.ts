@@ -11,30 +11,21 @@ const useGetPosts = (query: GetPostsParameter) =>
 	useSWR<Post[]>(["posts", String(query)], () => backend.post.getMany(query));
 
 export const usePost = () => {
-	const createPost = useCallback(
-		async (post: Post) => {
-			return await backend.post.create(post);
-		},
-		[],
-	);
+	const createPost = useCallback(async (post: Post) => {
+		return await backend.post.create(post);
+	}, []);
 
 	const getPost = useGetPost;
 
 	const getPosts = useGetPosts;
 
-	const updatePost = useCallback(
-		async (post: Post) => {
-			return await backend.post.update(post);
-		},
-		[],
-	);
+	const updatePost = useCallback(async (post: Post) => {
+		return await backend.post.update(post);
+	}, []);
 
-	const deletePost = useCallback(
-		async (post: Post) => {
-			await backend.post.delete(post.uid);
-		},
-		[],
-	);
+	const deletePost = useCallback(async (post: Post) => {
+		await backend.post.delete(post.uid);
+	}, []);
 
 	return { createPost, getPost, getPosts, updatePost, deletePost };
 };

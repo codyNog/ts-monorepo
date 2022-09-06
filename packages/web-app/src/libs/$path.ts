@@ -1,13 +1,13 @@
 export const pagesPath = {
-	"posts": {
+	posts: {
 		$url: (url?: { hash?: string }) => ({
 			pathname: "/posts" as const,
 			hash: url?.hash,
 		}),
 	},
-	"users": {
+	users: {
 		_uid: (uid: string | number) => ({
-			"posts": {
+			posts: {
 				$url: (url?: { hash?: string }) => ({
 					pathname: "/users/[uid]/posts" as const,
 					query: { uid },

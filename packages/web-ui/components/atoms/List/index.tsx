@@ -1,4 +1,8 @@
-import { ListItem as CListItem, OrderedList as COL, UnorderedList as CUL } from "@chakra-ui/react";
+import {
+	ListItem as CListItem,
+	OrderedList as COL,
+	UnorderedList as CUL,
+} from "@chakra-ui/react";
 import { MarginProps } from "../../style";
 
 type ListItemProps = MarginProps & { children: React.ReactNode };
@@ -13,16 +17,24 @@ type Props =
 
 export const OrderedList = ({ items, spacing = 4, ...marginProps }: Props) => (
 	<COL margin={0} spacing={spacing} {...marginProps}>
-    {items.map(({ node, key }) => (
-      <ListItem key={key}>{node}</ListItem>
-    ))}
-  </COL>
+		{items.map(
+			({ node, key }) => (
+				<ListItem key={key}>{node}</ListItem>
+			),
+		)}
+	</COL>
 );
 
-export const UnorderedList = ({ items, spacing = 4, ...marginProps }: Props) => (
+export const UnorderedList = ({
+	items,
+	spacing = 4,
+	...marginProps
+}: Props) => (
 	<CUL margin={0} spacing={spacing} {...marginProps}>
-    {items.map(({ node, key }) => (
-      <ListItem key={key}>{node}</ListItem>
-    ))}
-  </CUL>
+		{items.map(
+			({ node, key }) => (
+				<ListItem key={key}>{node}</ListItem>
+			),
+		)}
+	</CUL>
 );

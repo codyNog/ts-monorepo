@@ -5,14 +5,14 @@ import { Link } from "~/components/Link";
 export const RootPage = () => {
 	return (
 		<Center alignItems={"center"} h={"100%"}>
-      <Center>
-        <Box>
-          <Image src={"/128x128.png"} />
-          <Center>
-            <Link href={"/posts"}>ポスト一覧</Link>
-          </Center>
-        </Box>
-      </Center>
-    </Center>
+			<Center>
+				<Box>
+					<Image src={"/128x128.png"} />
+					<Center>
+						<Link href={"/posts"}>ポスト一覧</Link>
+					</Center>
+				</Box>
+			</Center>
+		</Center>
 	);
 };

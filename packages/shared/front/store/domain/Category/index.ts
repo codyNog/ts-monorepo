@@ -15,12 +15,9 @@ const useGetCategories = (query: GetCategoriesParameter) =>
 	);
 
 export const useCategory = () => {
-	const createCategory = useCallback(
-		async (category: Category) => {
-			return await backend.category.create(category);
-		},
-		[],
-	);
+	const createCategory = useCallback(async (category: Category) => {
+		return await backend.category.create(category);
+	}, []);
 
 	const getCategory = useGetCategory;
 	const getCategories = useGetCategories;
@@ -33,12 +30,9 @@ export const useCategory = () => {
 		[getCategory],
 	);
 
-	const deleteCategory = useCallback(
-		async (category: Category) => {
-			await backend.category.delete(category.uid);
-		},
-		[],
-	);
+	const deleteCategory = useCallback(async (category: Category) => {
+		await backend.category.delete(category.uid);
+	}, []);
 
 	return {
 		createCategory,
@@ -63,28 +57,22 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 		return { categories };
 	};
 
-	describe(
-		"useCategory",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("useCategory", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				async () => {
-					const { result, waitForNextUpdate } = renderHook(useTestHook);
-					expect<Category[] | undefined>(result.current.categories).toStrictEqual<
-						Category[] | undefined
-					>(undefined);
+		it("初期状態", async () => {
+			const { result, waitForNextUpdate } = renderHook(useTestHook);
+			expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+				Category[] | undefined
+			>(undefined);
 
-					await waitForNextUpdate();
+			await waitForNextUpdate();
 
-					expect<Category[] | undefined>(result.current.categories).toStrictEqual<
-						Category[] | undefined
-					>(mocks.category.categories);
-				},
-			);
-		},
-	);
+			expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+				Category[] | undefined
+			>(mocks.category.categories);
+		});
+	});
 }

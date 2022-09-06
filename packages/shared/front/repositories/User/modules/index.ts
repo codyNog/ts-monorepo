@@ -1,5 +1,9 @@
 import { CreateUserBody, UpdateUserBody } from "../../../../api/User/bodies";
-import { DeleteUserParameter, GetUserParameter, UpdateUserParameter } from "../../../../api/User/parameters";
+import {
+	DeleteUserParameter,
+	GetUserParameter,
+	UpdateUserParameter,
+} from "../../../../api/User/parameters";
 import { User } from "../../../../entities/User";
 import { GetUsersQuery } from "../../../../api/User/queries";
 

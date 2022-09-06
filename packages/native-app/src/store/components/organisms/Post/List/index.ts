@@ -25,28 +25,22 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { renderHook } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"usePostList",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("usePostList", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				async () => {
-					const { result, waitForNextUpdate } = renderHook(() => usePostList());
-					expect<Post[] | undefined>(result.current.posts).toStrictEqual<
-						Post[] | undefined
-					>(undefined);
+		it("初期状態", async () => {
+			const { result, waitForNextUpdate } = renderHook(() => usePostList());
+			expect<Post[] | undefined>(result.current.posts).toStrictEqual<
+				Post[] | undefined
+			>(undefined);
 
-					await waitForNextUpdate();
+			await waitForNextUpdate();
 
-					expect<Post[] | undefined>(result.current.posts).toStrictEqual<
-						Post[] | undefined
-					>(mocks.post.posts);
-				},
-			);
-		},
-	);
+			expect<Post[] | undefined>(result.current.posts).toStrictEqual<
+				Post[] | undefined
+			>(mocks.post.posts);
+		});
+	});
 }

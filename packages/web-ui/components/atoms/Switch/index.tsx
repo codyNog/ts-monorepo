@@ -5,5 +5,8 @@ type Props =
 	& { checked: boolean; onChange: (e: boolean) => void };
 
 export const Switch = (props: Props) => (
-	<CSwitch {...props} onChange={(e) => props.onChange(e.currentTarget.checked)} />
+	<CSwitch
+		{...props}
+		onChange={(e) => props.onChange(e.currentTarget.checked)}
+	/>
 );

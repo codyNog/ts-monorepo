@@ -35,15 +35,12 @@ export const usePostForm = (postProps?: Post) => {
 		[setPost],
 	);
 
-	const onChangeCategoryInput = useCallback(
-		async (name: string) => {
-			const options = await backend.category.getMany({ name });
-			return options.map(
-				(elem) => ({ ...elem, label: elem.name, value: elem.uid }),
-			);
-		},
-		[],
-	);
+	const onChangeCategoryInput = useCallback(async (name: string) => {
+		const options = await backend.category.getMany({ name });
+		return options.map(
+			(elem) => ({ ...elem, label: elem.name, value: elem.uid }),
+		);
+	}, []);
 
 	const addCategory = useCallback(
 		(category: Category) => {
@@ -87,39 +84,25 @@ if (import.meta.vitest) {
 	const { renderHook } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-	describe(
-		"usePostForm()",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("usePostForm()", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(() => usePostForm());
-					expect<Post>(result.current.post).toStrictEqual<Post>(
-						initialState.post,
-					);
-				},
-			);
-		},
-	);
+		it("初期状態", () => {
+			const { result } = renderHook(() => usePostForm());
+			expect<Post>(result.current.post).toStrictEqual<Post>(initialState.post);
+		});
+	});
 
-	describe(
-		"usePostForm(mocks.post.post)",
-		() => {
-			beforeAll(() => {
-				startTestServer();
-			});
+	describe("usePostForm(mocks.post.post)", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-			it(
-				"初期状態",
-				() => {
-					const { result } = renderHook(() => usePostForm(mocks.post.post));
-					expect<Post>(result.current.post).toStrictEqual<Post>(mocks.post.post);
-				},
-			);
-		},
-	);
+		it("初期状態", () => {
+			const { result } = renderHook(() => usePostForm(mocks.post.post));
+			expect<Post>(result.current.post).toStrictEqual<Post>(mocks.post.post);
+		});
+	});
 }

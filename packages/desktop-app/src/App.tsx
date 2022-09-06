@@ -4,7 +4,7 @@ import { Router } from "~/router";
 export const App = () => {
 	return (
 		<ComponentProvider>
-      <Router />
-    </ComponentProvider>
+			<Router />
+		</ComponentProvider>
 	);
 };

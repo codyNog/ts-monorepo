@@ -14,7 +14,7 @@ importers:
       eslint-plugin-simple-import-sort: 7.0.0
       husky: ^7.0.4
       npm-check-updates: ^12.5.11
-      rome: ^0.5.0-next
+      rome: 0.9.0-next
       sort-package-json: 1.57.0
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.22.0_tczu7pis5vktpxb43nqhvcgxwu
@@ -27,7 +27,7 @@ importers:
       eslint-plugin-simple-import-sort: 7.0.0_eslint@8.17.0
       husky: 7.0.4
       npm-check-updates: 12.5.12
-      rome: 0.5.0-next
+      rome: 0.9.0-next
       sort-package-json: 1.57.0
 
   packages/admin-app:
@@ -9440,50 +9440,68 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@rometools/cli-darwin-arm64/0.5.0-next:
-    resolution: {integrity: sha512-dzwIOxvSNPD70DJYzyrxs0DLqUd4p+wDJM/AmHKGTxYJSdQahEG5/scnqfwIGiaSpKP/qNIv4+7Hd0aSaQF0NQ==}
+  /@rometools/cli-darwin-arm64/0.9.0-next:
+    resolution: {integrity: sha512-DoqyJZoDI2lOFEJP8fIKLOGd+vG6cGvqsb5SnEBtyx6utumO1HeFhBXfhFS1zOU8A4eNE1eTdFVDeGjs6J/hYQ==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-darwin-x64/0.5.0-next:
-    resolution: {integrity: sha512-DXb/5PxNvD4ENb0oKiWnV2Zfww+yyZ5Q/ADUQqF1TsQjy8l7+4uiY618Wxo7KfH4y2uJA8b7wnly16bSw44F5g==}
+  /@rometools/cli-darwin-x64/0.9.0-next:
+    resolution: {integrity: sha512-Imt1C/lwltDQMC0GUt/DfOeCa6tjkfvO94oXKf0WmzXzPXAOP1wT4vxne9A6pSH5h35yfW+abrByLRkro1SDPw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-linux-arm64/0.5.0-next:
-    resolution: {integrity: sha512-1vWKrnQgBgTBeQZquphsmqdCudX4GuwugaQbQVmpCQa+WfKpAe8SAQIJz5G5G3m9uYQRUfwS2AXXEWuMCVHSZQ==}
+  /@rometools/cli-linux-arm64/0.9.0-next:
+    resolution: {integrity: sha512-d0KPHo7cK84ZrEqwXOXHg6LNYLACcezZyxZwzEyNnia4eRtpA3kG5EXdoayR0rFpfIMwTzUUWqSmYhfppMDcvA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-linux-x64/0.5.0-next:
-    resolution: {integrity: sha512-rKLhodWhYdMmVtIN1mZFxEFTbTiceat6NJUBGbsLHrjQVZ9h9tw8LlK/Lx8dBpzH5j093xKModnxZDFeIYyHLQ==}
+  /@rometools/cli-linux-x64/0.9.0-next:
+    resolution: {integrity: sha512-m1E/kGvSAexdaSwhDmTLjKBLawHEtY/bxgVCwyVaPG+sk4QCB7/4YZyQzLQxMJ1cJ+RFUYESdh1CP/KN0ZWtFw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-win32-arm64/0.5.0-next:
-    resolution: {integrity: sha512-XDVcPeTAvR9KgCqJQYLkhG2cb5XhsY1ZQUKSGsruxB257spkizb2M299VvLaSKVD7pDakG8Vk0JN3lPXdn0zdQ==}
+  /@rometools/cli-win32-arm64/0.9.0-next:
+    resolution: {integrity: sha512-7lTx/l/EqF7ecntugjK0LCICFTyXnswZ/h2WT8chctkPjLJvlimqXWlC9Sem4KbNIjNPpO8gW3pmvNQlUGyWag==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-win32-x64/0.5.0-next:
-    resolution: {integrity: sha512-kZeH17xLyQeAD+Y3vAPFuFnF7RxaCmtN/WSfB4mobje5HsAIqP6YPA7Gxpex/fJhv3rRWyNMTvrZEtDn5ogjHw==}
+  /@rometools/cli-win32-x64/0.9.0-next:
+    resolution: {integrity: sha512-Xey8/xIaSq9i9TS11L4osUIRUiA7qwmRiu86CPwACclzcucWa2ySf11jWmjiZKxgDl1O1YaxcZDHef88zZcGPA==}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/wasm-bundler/0.9.0-next:
+    resolution: {integrity: sha512-ieC7g99orV/WLqvC1pupu1O5WMyE0YggT2mvmjXn5CUXh+iNI7ZD4d2XfFiiGNQFUs96FrNaypK7M1Nc1kC65w==}
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/wasm-nodejs/0.9.0-next:
+    resolution: {integrity: sha512-zTZLVALA/tm7D1SeW08t9TytB4Rx9s++pYU8/yc7wN/sEnWuE2QbHvnfrzRlMsw6K+k27HLCyJOfak3rAZOpvw==}
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/wasm-web/0.9.0-next:
+    resolution: {integrity: sha512-8mRIbOtK+XWLbMBJoERHZ/RKyZSiOOquPK2DrMuKxzPnW8bGuK/4EvIImPGgoGYzTXNJFSprboQpaE+gvBmB8w==}
     requiresBuild: true
     dev: true
     optional: true
@@ -20192,10 +20210,10 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.22.0_utdtartgf6fqqgkivzeynh76la
+      '@typescript-eslint/parser': 5.22.0_eslint@8.17.0
       debug: 3.2.7
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.7.1_btspkuwbqkl4adpiufzbathtpi
+      eslint-import-resolver-typescript: 2.7.1_3yxiwxzsqipdmy4jwrlv6vgfmy
       find-up: 2.1.0
     transitivePeerDependencies:
       - supports-color
@@ -28645,18 +28663,21 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /rome/0.5.0-next:
-    resolution: {integrity: sha512-Y5LmDdSeu35DrqJRQnNHSmZcL6yOyHUhJLKevZN5xXW4GnPwHMLF8rUahnhgAugD5wmyGYAgakwKWA64n6yxkg==}
-    engines: {node: '>=14.18.0'}
+  /rome/0.9.0-next:
+    resolution: {integrity: sha512-Ggk0vGhYmeFEAMdd9gTtsmGKGIGa5ldet/GJDRgtW/7gZYP7HYNizJcf5N4uwZHn0/hjgFvguWB2BEHsHGTivA==}
+    engines: {node: '>=14.*'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@rometools/cli-darwin-arm64': 0.5.0-next
-      '@rometools/cli-darwin-x64': 0.5.0-next
-      '@rometools/cli-linux-arm64': 0.5.0-next
-      '@rometools/cli-linux-x64': 0.5.0-next
-      '@rometools/cli-win32-arm64': 0.5.0-next
-      '@rometools/cli-win32-x64': 0.5.0-next
+      '@rometools/cli-darwin-arm64': 0.9.0-next
+      '@rometools/cli-darwin-x64': 0.9.0-next
+      '@rometools/cli-linux-arm64': 0.9.0-next
+      '@rometools/cli-linux-x64': 0.9.0-next
+      '@rometools/cli-win32-arm64': 0.9.0-next
+      '@rometools/cli-win32-x64': 0.9.0-next
+      '@rometools/wasm-bundler': 0.9.0-next
+      '@rometools/wasm-nodejs': 0.9.0-next
+      '@rometools/wasm-web': 0.9.0-next
     dev: true
 
   /rsvp/4.8.5:

@@ -1,5 +1,9 @@
 import { CreatePostBody, UpdatePostBody } from "../../../../api/Post/bodies";
-import { DeletePostParameter, GetPostParameter, UpdatePostParameter } from "../../../../api/Post/parameters";
+import {
+	DeletePostParameter,
+	GetPostParameter,
+	UpdatePostParameter,
+} from "../../../../api/Post/parameters";
 import { Post } from "../../../../entities/Post";
 import { GetPostsQuery } from "../../../../api/Post/queries";
 import { GetPostsParameter } from "../types";

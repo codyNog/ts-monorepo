@@ -1,18 +1,18 @@
 export const pagesPath = {
-	"$404": {
+	$404: {
 		$url: (url?: { hash?: string }) => ({
 			pathname: "/404" as const,
 			hash: url?.hash,
 		}),
 	},
-	"categories": {
+	categories: {
 		":categoryUid": {
 			$url: (url?: { hash?: string }) => ({
 				pathname: "/categories/:categoryUid" as const,
 				hash: url?.hash,
 			}),
 		},
-		"new": {
+		new: {
 			$url: (url?: { hash?: string }) => ({
 				pathname: "/categories/new" as const,
 				hash: url?.hash,
@@ -23,14 +23,14 @@ export const pagesPath = {
 			hash: url?.hash,
 		}),
 	},
-	"posts": {
+	posts: {
 		":postUid": {
 			$url: (url?: { hash?: string }) => ({
 				pathname: "/posts/:postUid" as const,
 				hash: url?.hash,
 			}),
 		},
-		"new": {
+		new: {
 			$url: (url?: { hash?: string }) => ({
 				pathname: "/posts/new" as const,
 				hash: url?.hash,
@@ -41,16 +41,16 @@ export const pagesPath = {
 			hash: url?.hash,
 		}),
 	},
-	"seeds": {
+	seeds: {
 		$url: (url?: { hash?: string }) => ({
 			pathname: "/seeds" as const,
 			hash: url?.hash,
 		}),
 	},
-	"users": {
+	users: {
 		":userUid": {
-			"posts": {
-				"new": {
+			posts: {
+				new: {
 					$url: (url?: { hash?: string }) => ({
 						pathname: "/users/:userUid/posts/new" as const,
 						hash: url?.hash,
@@ -66,7 +66,7 @@ export const pagesPath = {
 				hash: url?.hash,
 			}),
 		},
-		"new": {
+		new: {
 			$url: (url?: { hash?: string }) => ({
 				pathname: "/users/new" as const,
 				hash: url?.hash,

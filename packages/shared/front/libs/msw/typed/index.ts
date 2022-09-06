@@ -18,13 +18,11 @@ type Methods = {
 // restPost 関数第一引数の期待値（型）
 //
 type Post = {
-	post: (
-		option: {
-			body: Methods["post"]["reqBody"];
-			query: Methods["post"]["query"];
-			config?: any;
-		},
-	) => Promise<Methods["post"]["resBody"]>;
+	post: (option: {
+		body: Methods["post"]["reqBody"];
+		query: Methods["post"]["query"];
+		config?: any;
+	}) => Promise<Methods["post"]["resBody"]>;
 	$path: () => string;
 };
 //
@@ -42,13 +40,11 @@ export function restPost<T extends Post>(
 }
 
 type Get = {
-	get: (
-		option: {
-			body: Methods["get"]["reqBody"];
-			query: Methods["get"]["query"];
-			config?: any;
-		},
-	) => Promise<Methods["get"]["resBody"]>;
+	get: (option: {
+		body: Methods["get"]["reqBody"];
+		query: Methods["get"]["query"];
+		config?: any;
+	}) => Promise<Methods["get"]["resBody"]>;
 	$path: () => string;
 };
 
@@ -64,13 +60,11 @@ export function restGet<T extends Get>(
 }
 
 type Put = {
-	put: (
-		option: {
-			body: Methods["put"]["reqBody"];
-			query: Methods["put"]["query"];
-			config?: any;
-		},
-	) => Promise<Methods["put"]["resBody"]>;
+	put: (option: {
+		body: Methods["put"]["reqBody"];
+		query: Methods["put"]["query"];
+		config?: any;
+	}) => Promise<Methods["put"]["resBody"]>;
 	$path: () => string;
 };
 
@@ -86,13 +80,11 @@ export function restPut<T extends Put>(
 }
 
 type Delete = {
-	delete: (
-		option: {
-			body: Methods["delete"]["reqBody"];
-			query: Methods["delete"]["query"];
-			config?: any;
-		},
-	) => Promise<Methods["delete"]["resBody"]>;
+	delete: (option: {
+		body: Methods["delete"]["reqBody"];
+		query: Methods["delete"]["query"];
+		config?: any;
+	}) => Promise<Methods["delete"]["resBody"]>;
 	$path: () => string;
 };
 

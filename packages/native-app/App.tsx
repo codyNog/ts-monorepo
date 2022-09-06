@@ -5,10 +5,10 @@ import { Navigation } from "~/navigation";
 const App = () => {
 	return (
 		<ComponentProvider>
-      <SafeAreaView>
-        <Navigation />
-      </SafeAreaView>
-    </ComponentProvider>
+			<SafeAreaView>
+				<Navigation />
+			</SafeAreaView>
+		</ComponentProvider>
 	);
 };
 

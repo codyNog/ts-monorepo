@@ -1,4 +1,7 @@
-import { CreateCategoryBody, UpdateCategoryBody } from "../../../../api/Category/bodies";
+import {
+	CreateCategoryBody,
+	UpdateCategoryBody,
+} from "../../../../api/Category/bodies";
 import {
 	DeleteCategoryParameter,
 	GetCategoryParameter,

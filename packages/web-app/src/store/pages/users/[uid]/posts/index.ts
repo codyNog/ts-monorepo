@@ -7,10 +7,8 @@ type Query = { uid: string };
 export const useUserPostsPage = () => {
 	const { uid } = useRouter().query as Query;
 
-	const parameter: GetPostsParameter | undefined = useMemo(
-		() => (uid ? { authorId: uid } : undefined),
-		[uid],
-	);
+	const parameter: GetPostsParameter | undefined = useMemo(() =>
+		uid ? { authorId: uid } : undefined, [uid]);
 
 	return { parameter };
 };
