@@ -7,22 +7,17 @@ import { useLoginForm } from "~/store/components/LoginForm";
 type Props = MarginProps & { onSubmit: (parameter: LoginParmeter) => void };
 
 export const LoginForm = ({ onSubmit, ...marginProps }: Props): JSX.Element => {
-	const { parameter, onChangeName, onChangePassword, submit } =
-		useLoginForm(onSubmit);
+  const { register, handleSubmit } = useLoginForm();
 
-	return (
-		<VStack {...marginProps}>
-			<Label label={"ユーザー名"}>
-				<Input value={parameter.name} onChange={onChangeName} />
-			</Label>
-			<Label label={"パスワード"}>
-				<Input
-					value={parameter.password}
-					type={"password"}
-					onChange={onChangePassword}
-				/>
-			</Label>
-			<Button onClick={submit}>送信</Button>
-		</VStack>
-	);
+  return (
+    <VStack {...marginProps}>
+      <Label htmlFor={"name"} label={"ユーザー名"}>
+        <Input {...register("name")} />
+      </Label>
+      <Label htmlFor={"password"} label={"パスワード"}>
+        <Input {...register("password")} />
+      </Label>
+      <Button onClick={() => handleSubmit(onSubmit)()}>送信</Button>
+    </VStack>
+  );
 };

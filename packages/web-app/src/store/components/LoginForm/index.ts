@@ -1,28 +1,14 @@
 import { LoginParmeter } from "@my/shared/front/repositories/User/types";
-import { useState, useCallback } from "react";
+import { useForm } from "react-hook-form";
 
-const INITIAL_VALUE: LoginParmeter = { name: "", password: "" };
+const defaultValues: LoginParmeter = { name: "", password: "" };
 
-export const useLoginForm = (onSubmit: (parameter: LoginParmeter) => void) => {
-	const [parameter, setParameter] = useState<LoginParmeter>(INITIAL_VALUE);
+export const useLoginForm = () => {
+  const { register, watch, handleSubmit } = useForm<LoginParmeter>({
+    defaultValues,
+  });
 
-	const onChangeName = useCallback(
-		(name: string) => {
-			setParameter((prev) => ({ ...prev, name }));
-		},
-		[setParameter],
-	);
+  const parameter = watch();
 
-	const onChangePassword = useCallback(
-		(password: string) => {
-			setParameter((prev) => ({ ...prev, password }));
-		},
-		[setParameter],
-	);
-
-	const submit = useCallback(() => {
-		onSubmit(parameter);
-	}, [onSubmit, parameter]);
-
-	return { parameter, onChangeName, onChangePassword, submit };
+  return { register, handleSubmit, parameter };
 };
