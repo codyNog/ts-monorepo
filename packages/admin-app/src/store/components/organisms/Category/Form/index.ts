@@ -5,45 +5,45 @@ import { useForm } from "react-hook-form";
 const defaultValues: Category = initialState.category;
 
 export const useCategoryForm = (categoryProps?: Category) => {
-  const { register, handleSubmit, watch } = useForm<Category>({
-    defaultValues: categoryProps || defaultValues,
-  });
-  const category = watch();
+	const { register, handleSubmit, watch } = useForm<Category>({
+		defaultValues: categoryProps || defaultValues,
+	});
+	const category = watch();
 
-  return { category, register, handleSubmit };
+	return { category, register, handleSubmit };
 };
 
 if (import.meta.vitest) {
-  const { describe, it, expect, beforeAll } = import.meta.vitest;
-  const { mocks } = await import("@my/shared/mocks");
-  const { renderHook } = await import("@testing-library/react");
-  const { startTestServer } = await import("@my/shared/front/libs/msw");
+	const { describe, it, expect, beforeAll } = import.meta.vitest;
+	const { mocks } = await import("@my/shared/mocks");
+	const { renderHook } = await import("@testing-library/react");
+	const { startTestServer } = await import("@my/shared/front/libs/msw");
 
-  describe("useCategoryForm()", () => {
-    beforeAll(() => {
-      startTestServer();
-    });
+	describe("useCategoryForm()", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-    it("初期状態", () => {
-      const { result } = renderHook(() => useCategoryForm());
-      expect<Category>(result.current.category).toStrictEqual<Category>(
-        defaultValues
-      );
-    });
-  });
+		it("初期状態", () => {
+			const { result } = renderHook(() => useCategoryForm());
+			expect<Category>(result.current.category).toStrictEqual<Category>(
+				defaultValues,
+			);
+		});
+	});
 
-  describe("useCategoryForm(mocks.category.category)", () => {
-    beforeAll(() => {
-      startTestServer();
-    });
+	describe("useCategoryForm(mocks.category.category)", () => {
+		beforeAll(() => {
+			startTestServer();
+		});
 
-    it("初期状態", () => {
-      const { result } = renderHook(() =>
-        useCategoryForm(mocks.category.category)
-      );
-      expect<Category>(result.current.category).toStrictEqual<Category>(
-        mocks.category.category
-      );
-    });
-  });
+		it("初期状態", () => {
+			const { result } = renderHook(
+				() => useCategoryForm(mocks.category.category),
+			);
+			expect<Category>(result.current.category).toStrictEqual<Category>(
+				mocks.category.category,
+			);
+		});
+	});
 }

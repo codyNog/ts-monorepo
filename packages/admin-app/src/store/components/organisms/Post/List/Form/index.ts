@@ -5,44 +5,45 @@ import { useForm } from "react-hook-form";
 import { initialState } from "~/constants/state";
 
 export const usePostListForm = (parameterProps: GetPostsParameter) => {
-  const { register, watch, handleSubmit, setValue, reset } =
-    useForm<GetPostsParameter>({
-      defaultValues: parameterProps,
-    });
+	const { register, watch, handleSubmit, setValue, reset } =
+		useForm<GetPostsParameter>({
+			defaultValues: parameterProps,
+		});
 
-  const parameter = watch();
+	const parameter = watch();
 
-  const onChangeAuthorId = useCallback(
-    (authorId: string) => {
-      setValue("authorId", authorId);
-    },
-    [setValue]
-  );
+	const onChangeAuthorId = useCallback(
+		(authorId: string) => {
+			setValue("authorId", authorId);
+		},
+		[setValue],
+	);
 
-  const loadOptions = useCallback(async (name: string) => {
-    const users = await backend.user.getMany({ name });
+	const loadOptions = useCallback(async (name: string) => {
+		const users = await backend.user.getMany({ name });
 
-    return users.map((elem) => ({
-      ...elem,
-      value: elem.uid,
-      label: elem.name,
-    }));
-  }, []);
+		return users.map(
+			(elem) => ({
+				...elem,
+				value: elem.uid,
+				label: elem.name,
+			}),
+		);
+	}, []);
 
-  const clear = useCallback(
-    (onSubmit: (parameter: GetPostsParameter) => void) => {
-      onSubmit({ ...initialState.getPostsParameter });
-      reset(initialState.getPostsParameter);
-    },
-    []
-  );
+	const clear = useCallback((
+		onSubmit: (parameter: GetPostsParameter) => void,
+	) => {
+		onSubmit({ ...initialState.getPostsParameter });
+		reset(initialState.getPostsParameter);
+	}, []);
 
-  return {
-    parameter,
-    register,
-    handleSubmit,
-    onChangeAuthorId,
-    loadOptions,
-    clear,
-  };
+	return {
+		parameter,
+		register,
+		handleSubmit,
+		onChangeAuthorId,
+		loadOptions,
+		clear,
+	};
 };

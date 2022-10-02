@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 const defaultValues: LoginParmeter = { name: "", password: "" };
 
 export const useLoginForm = () => {
-  const { register, watch, handleSubmit } = useForm<LoginParmeter>({
-    defaultValues,
-  });
+	const { register, watch, handleSubmit } = useForm<LoginParmeter>({
+		defaultValues,
+	});
 
-  const parameter = watch();
+	const parameter = watch();
 
-  return { register, handleSubmit, parameter };
+	return { register, handleSubmit, parameter };
 };

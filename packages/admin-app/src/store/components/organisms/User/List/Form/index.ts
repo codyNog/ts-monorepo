@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { initialState } from "~/constants/state";
 
 export const useUserListForm = (defaultValues?: GetUsersParameter) => {
-  const { register, watch, handleSubmit } = useForm<GetUsersParameter>({
-    defaultValues: defaultValues || initialState.getUsersParameter,
-  });
+	const { register, watch, handleSubmit } = useForm<GetUsersParameter>({
+		defaultValues: defaultValues || initialState.getUsersParameter,
+	});
 
-  const parameter = watch();
+	const parameter = watch();
 
-  return { parameter, register, handleSubmit };
+	return { parameter, register, handleSubmit };
 };
