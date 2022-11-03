@@ -1,7 +1,6 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Input } from "@chakra-ui/react";
 import { onPreseEnter } from "../../../utils";
 import { useCallback, useState } from "react";
-import { Input } from "../../atoms/Input";
 import { Tag } from "../../atoms/Tag";
 import { MarginProps } from "../../style";
 
@@ -43,7 +42,7 @@ export const MultipleInput = ({
 		<Box {...marginProps}>
 			<Input
 				value={inputValue}
-				onChange={setInputValue}
+				onChange={(e) => setInputValue(e.currentTarget.value)}
 				onKeyDown={(e) => onPreseEnter(e, onSubmit)}
 			/>
 			<Box mt={2}>

@@ -1,7 +1,6 @@
-import { FormLabel, Input } from "@chakra-ui/react";
+import { FormLabel, Input, Text } from "@chakra-ui/react";
 import { MarginProps } from "../../style";
 import { Center } from "../../layouts/Center";
-import { Text } from "../Text";
 
 type Props<T> =
 	& MarginProps
