@@ -8,14 +8,18 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "pathpida": "pathpida -o src/libs --ignorePath .gitignore"
   },
   "dependencies": {
     "@astrojs/react": "^1.2.2",
-    "@web/ui": "*",
     "@my/shared": "*",
+    "@web/ui": "*",
     "astro": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "pathpida": "^0.18.1"
   }
 }

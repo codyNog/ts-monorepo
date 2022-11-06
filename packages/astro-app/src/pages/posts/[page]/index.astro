@@ -1,0 +1,35 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import { backend } from "@my/shared/front/backend";
+import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
+import { Post } from "@my/shared/entities/Post";
+import { mocks } from "@my/shared/mocks";
+
+type Props = {
+  page: {
+    data: Post[];
+    currentPage: number;
+  };
+};
+
+const getQuery = (key: string) => Astro.url.searchParams.get(key);
+const title = getQuery("title");
+const authorId = getQuery("authorId");
+const params: GetPostsParameter = { title, authorId };
+
+export async function getStaticPaths({ paginate }) {
+  const posts: Post[] = await backend.post
+    .getMany()
+    .catch(() => mocks.post.posts);
+  return paginate(posts, { pageSize: 2 });
+}
+const { page } = Astro.props as Props;
+---
+
+<Layout>
+  <main>
+    <div>posts</div>
+    <div>{page.data.map((elem) => <div>{elem.body}</div>)}</div>
+    <div>{page.currentPage}</div>
+  </main>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import { User } from "@my/shared/entities/User";
+import { mocks } from "@my/shared/mocks";
+import Layout from "~/layouts/Layout.astro";
+
+type Params = { id: string };
+
+export const getStaticPaths = async (): Promise<{ params: Params }[]> => {
+  const users: User[] = mocks.user.users;
+
+  return users.map((user) => {
+    return {
+      params: { id: user.uid },
+    };
+  });
+};
+const { id } = Astro.params as Params;
+---
+
+<Layout>
+  <main>
+    <div>{id}</div>
+  </main>
+</Layout>

@@ -1,0 +1,22 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+type Params = { id: string };
+
+export const getStaticPaths = async (): Promise<{ params: Params }[]> => {
+  const posts = [{ id: "foo" }];
+
+  return posts.map((post) => {
+    return {
+      params: { id: post.id },
+    };
+  });
+};
+const { id } = Astro.params as Params;
+---
+
+<Layout>
+  <main>
+    <div>{id}</div>
+  </main>
+</Layout>
