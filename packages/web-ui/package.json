@@ -7,7 +7,8 @@
   "main": "index.js",
   "scripts": {
     "depcheck": "depcheck",
-    "sort": "sort-package-json package.json"
+    "sort": "sort-package-json package.json",
+    "storybook": "start-storybook -p 6006 --no-manager-cache"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.0",
@@ -27,6 +28,7 @@
     "@storybook/addon-links": "^6.5.3",
     "@storybook/builder-vite": "^0.1.35",
     "@storybook/client-api": "^6.5.3",
+    "@storybook/jest": "^0.0.10",
     "@storybook/react": "6.5.3",
     "@storybook/testing-library": "^0.0.11",
     "@testing-library/react": "^13.2.0",

@@ -1,7 +1,7 @@
 import { Checkbox as CCheckBox } from "@chakra-ui/react";
 import { MarginProps } from "../../style";
 
-type Props =
+export type Props =
 	& MarginProps
 	& {
 		checked: boolean;

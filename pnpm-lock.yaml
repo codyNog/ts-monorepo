@@ -490,6 +490,7 @@ importers:
       '@storybook/addon-links': ^6.5.3
       '@storybook/builder-vite': ^0.1.35
       '@storybook/client-api': ^6.5.3
+      '@storybook/jest': ^0.0.10
       '@storybook/react': 6.5.3
       '@storybook/testing-library': ^0.0.11
       '@testing-library/react': ^13.2.0
@@ -517,6 +518,7 @@ importers:
       '@storybook/addon-links': 6.5.8_react@18.1.0
       '@storybook/builder-vite': 0.1.36_react@18.1.0
       '@storybook/client-api': 6.5.8_react@18.1.0
+      '@storybook/jest': 0.0.10_react@18.1.0
       '@storybook/react': 6.5.3_react@18.1.0
       '@storybook/testing-library': 0.0.11_react@18.1.0
       '@testing-library/react': 13.3.0_react@18.1.0
@@ -4487,7 +4489,7 @@ packages:
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/transition': 1.4.8_pvrrjjxxebeux2inc4x3o6zjy4
       '@chakra-ui/utils': 1.10.4
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -4565,7 +4567,7 @@ packages:
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/utils': 1.10.4
       '@chakra-ui/visually-hidden': 1.1.6_yzmsk3wt2au2gz6t6wsmkb4zcm
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -4629,7 +4631,7 @@ packages:
       '@emotion/react': '>=10.0.35'
       react: '>=16.8.6'
     dependencies:
-      '@emotion/react': 11.9.0_mojt4vfvzjgczlgs4u436xt75u
+      '@emotion/react': 11.9.0_cbpnieqasrszcwkqeh5i7z7nse
       react: 18.1.0
     dev: false
 
@@ -4813,7 +4815,7 @@ packages:
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/transition': 1.4.8_pvrrjjxxebeux2inc4x3o6zjy4
       '@chakra-ui/utils': 1.10.4
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -4934,7 +4936,7 @@ packages:
       '@chakra-ui/react-utils': 1.2.3_react@18.1.0
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/utils': 1.10.4
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -5276,8 +5278,8 @@ packages:
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/theme': 1.14.1_@chakra-ui+system@1.12.1
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.9.0_mojt4vfvzjgczlgs4u436xt75u
-      '@emotion/styled': 11.8.1_ev7eaohrznmneepri7xttmcb7i
+      '@emotion/react': 11.9.0_cbpnieqasrszcwkqeh5i7z7nse
+      '@emotion/styled': 11.8.1_gaubypnipfqwqvjfp7zir6vcs4
       react: 18.1.0
     dev: false
 
@@ -5336,7 +5338,7 @@ packages:
       '@chakra-ui/checkbox': 1.7.1_dy6u2yekvjg7o2q6va3omykseq
       '@chakra-ui/system': 1.12.1_t4r7icl7x3elshpaxc4xm7jrem
       '@chakra-ui/utils': 1.10.4
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -5351,8 +5353,8 @@ packages:
       '@chakra-ui/react-utils': 1.2.3_react@18.1.0
       '@chakra-ui/styled-system': 1.19.0
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.9.0_mojt4vfvzjgczlgs4u436xt75u
-      '@emotion/styled': 11.8.1_ev7eaohrznmneepri7xttmcb7i
+      '@emotion/react': 11.9.0_cbpnieqasrszcwkqeh5i7z7nse
+      '@emotion/styled': 11.8.1_gaubypnipfqwqvjfp7zir6vcs4
       react: 18.1.0
       react-fast-compare: 3.2.0
     dev: false
@@ -5515,7 +5517,7 @@ packages:
       react: '>=16.8.6'
     dependencies:
       '@chakra-ui/utils': 1.10.4
-      framer-motion: 6.3.11_ef5jwxihqo6n7gxfmzogljlgcm
+      framer-motion: 6.3.11_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -13297,6 +13299,12 @@ packages:
       - supports-color
     dev: true
 
+  /@storybook/expect/27.5.2-0:
+    resolution: {integrity: sha512-cP99mhWN/JeCp7VSIiymvj5tmuMY050iFohvp8Zq+kewKsBSZ6/qpTJAGCCZk6pneTcp4S0Fm5BSqyxzbyJ3gw==}
+    dependencies:
+      '@types/jest': 28.1.1
+    dev: true
+
   /@storybook/instrumenter/6.5.8_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-MENB68yhmOnmBJW8NzlBSiFD4I7GfnBUMNMlGuoq6mT3/2C3BZqwtiVUx2ry1Rf+Yl9yoI3jMUa/JOJrQ/B34w==}
     dependencies:
@@ -13318,6 +13326,18 @@ packages:
       '@storybook/core-events': 6.5.8
       core-js: 3.22.8
       global: 4.4.0
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: true
+
+  /@storybook/jest/0.0.10_react@18.1.0:
+    resolution: {integrity: sha512-qeYLIplpcOUQXboJde5pRCjTvkGmF80jEszRUoNYCNcEPfC2sMK68Wq6Ct8EQj3CoEdJqsK54O2YYh+7D9S+ag==}
+    dependencies:
+      '@storybook/expect': 27.5.2-0
+      '@storybook/instrumenter': 6.5.8_react@18.1.0
+      '@testing-library/jest-dom': 5.16.4
+      jest-mock: 27.5.1
     transitivePeerDependencies:
       - react
       - react-dom
@@ -17550,7 +17570,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.6.3
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -18335,11 +18355,13 @@ packages:
 
   /core-js/3.22.8:
     resolution: {integrity: sha512-UoGQ/cfzGYIuiq6Z7vWL1HfkE9U9IZ4Ub+0XSiJTCzvbZzgPA69oDF2f+lgJ6dFFLEdjW5O6svvoKzXX23xFkA==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
     dev: true
 
   /core-js/3.6.5:
     resolution: {integrity: sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
     dev: true
 
@@ -21535,6 +21557,19 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: false
+
+  /follow-redirects/1.15.1_debug@4.3.1:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 4.3.1
+    dev: true
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -22855,7 +22890,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.1_debug@4.3.1
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
@@ -27224,17 +27259,6 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
-    dev: true
-
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
     dev: true
 
   /promise-polyfill/8.1.3:

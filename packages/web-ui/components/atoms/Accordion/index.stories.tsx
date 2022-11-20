@@ -1,5 +1,5 @@
 import { Accordion as Component } from ".";
-import { Text } from "../Text";
+import { Text } from "@chakra-ui/react";
 
 export default { title: "atoms/Accordion" };
 

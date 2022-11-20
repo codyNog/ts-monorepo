@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentProvider } from "../components";
 
 export const parameters = {

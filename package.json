@@ -24,7 +24,7 @@
     "prisma-gen": "pnpm ---filter=./packages/api/** prisma-gen",
     "sort": "pnpm --filter=./** sort",
     "storybook:admin": "pnpm --filter=./packages/admin-app/** storybook",
-    "storybook:shared": "pnpm --filter=./packages/shared/** storybook",
+    "storybook:web-ui": "pnpm --filter=./packages/web-ui/** storybook",
     "test:admin": "pnpm --filter=./packages/admin-app/** test",
     "test:service": "pnpm --filter=./packages/service/** test",
     "test:shared": "pnpm --filter=./packages/shared/** test",
