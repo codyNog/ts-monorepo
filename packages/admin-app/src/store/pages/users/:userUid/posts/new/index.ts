@@ -15,10 +15,9 @@ export const useUserPostNewPage = () => {
 		async (post: Post) => {
 			const data: Post = { ...post, authorId: userUid };
 			await createPost(data);
-			const path = pagesPath.users[":userUid"].$url().pathname.replace(
-				":userUid",
-				userUid,
-			);
+			const path = pagesPath.users[":userUid"]
+				.$url()
+				.pathname.replace(":userUid", userUid);
 			if (!path) {
 				return null;
 			}

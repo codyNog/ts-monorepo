@@ -17,13 +17,11 @@ export const Radios = <T extends string>({
 }: Props<T>) => {
 	return (
 		<NRadio.Group name={name} value={value} onChange={(e) => onChange(e as T)}>
-			{options.map(
-				(elem) => (
-					<NRadio key={elem.label} value={elem.value}>
-						{elem.label}
-					</NRadio>
-				),
-			)}
+			{options.map((elem) => (
+				<NRadio key={elem.label} value={elem.value}>
+					{elem.label}
+				</NRadio>
+			))}
 		</NRadio.Group>
 	);
 };

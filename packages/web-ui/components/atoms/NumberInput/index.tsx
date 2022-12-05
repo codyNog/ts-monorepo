@@ -7,9 +7,10 @@ import {
 	NumberInputStepper,
 } from "@chakra-ui/react";
 
-type Props =
-	& Omit<NumberInputProps, "value">
-	& { value: number; onChange: (value: number) => void };
+type Props = Omit<NumberInputProps, "value"> & {
+	value: number;
+	onChange: (value: number) => void;
+};
 
 export const NumberInput = ({
 	value,

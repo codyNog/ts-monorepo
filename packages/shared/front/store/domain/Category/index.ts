@@ -9,9 +9,8 @@ const useGetCategory = (uid: string) =>
 	useSWR<Category>(["category", uid], () => backend.category.get(uid));
 
 const useGetCategories = (query: GetCategoriesParameter) =>
-	useSWR<Category[]>(
-		["categories", String(query)],
-		() => backend.category.getMany(query),
+	useSWR<Category[]>(["categories", String(query)], () =>
+		backend.category.getMany(query),
 	);
 
 export const useCategory = () => {

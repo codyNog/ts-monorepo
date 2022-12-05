@@ -6,13 +6,11 @@ import { MarginProps } from "../../style";
 
 const INITIAL_VALUE = "";
 
-type Props =
-	& MarginProps
-	& {
-		value: string[];
-		submit: (value: string[]) => void;
-		onDelete: (value: string[]) => void;
-	};
+type Props = MarginProps & {
+	value: string[];
+	submit: (value: string[]) => void;
+	onDelete: (value: string[]) => void;
+};
 
 export const MultipleInput = ({
 	value,
@@ -46,13 +44,11 @@ export const MultipleInput = ({
 				onKeyDown={(e) => onPreseEnter(e, onSubmit)}
 			/>
 			<Box mt={2}>
-				{value.map(
-					(elem) => (
-						<Tag key={elem} onClose={() => onDeleteTag(elem)} mr={2}>
-							{elem}
-						</Tag>
-					),
-				)}
+				{value.map((elem) => (
+					<Tag key={elem} onClose={() => onDeleteTag(elem)} mr={2}>
+						{elem}
+					</Tag>
+				))}
 			</Box>
 		</Box>
 	);

@@ -26,16 +26,14 @@ type DrawerProps = MarginProps;
 
 const Drawer = ({ ...marginProps }: DrawerProps): JSX.Element => {
 	return (
-		<Box {...marginProps} h={"100%"} p={5} bgColor={"gray.200"}>
+		<Box {...marginProps} h={"100%"} p={5} bgColor={"gray"}>
 			<Text fontSize={"lg"}>管理画面</Text>
 			<UnorderedList
 				mt={4}
-				items={navigations.map(
-					(elem) => ({
-						key: elem.href,
-						node: <LinkItem {...elem} />,
-					}),
-				)}
+				items={navigations.map((elem) => ({
+					key: elem.href,
+					node: <LinkItem {...elem} />,
+				}))}
 			/>
 		</Box>
 	);

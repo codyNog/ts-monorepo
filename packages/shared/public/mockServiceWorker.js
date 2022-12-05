@@ -91,14 +91,16 @@ async function resolveMainClient(event) {
 
 	const allClients = await self.clients.matchAll();
 
-	return allClients.filter((client) => {
-		// Get only those clients that are currently visible.
-		return client.visibilityState === "visible";
-	}).find((client) => {
-		// Find the client ID that's recorded in the
-		// set of clients that have registered the worker.
-		return activeClientIds.has(client.id);
-	});
+	return allClients
+		.filter((client) => {
+			// Get only those clients that are currently visible.
+			return client.visibilityState === "visible";
+		})
+		.find((client) => {
+			// Find the client ID that's recorded in the
+			// set of clients that have registered the worker.
+			return activeClientIds.has(client.id);
+		});
 }
 
 async function handleRequest(event, requestId) {

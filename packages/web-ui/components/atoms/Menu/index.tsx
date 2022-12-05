@@ -19,11 +19,9 @@ export const Menu = ({ menus }: Props) => (
 			Actions
 		</MenuButton>
 		<MenuList>
-			{menus.map(
-				({ key, ...rest }) => (
-					<MenuItem key={key} {...rest} />
-				),
-			)}
+			{menus.map(({ key, ...rest }) => (
+				<MenuItem key={key} {...rest} />
+			))}
 		</MenuList>
 	</CMenu>
 );

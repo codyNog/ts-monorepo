@@ -16,11 +16,9 @@ export const Navigation = (): JSX.Element => {
 	return (
 		<NavigationContainer>
 			<Navigator>
-				{screens.map(
-					(screen) => (
-						<Screen key={screen.name} {...screen} />
-					),
-				)}
+				{screens.map((screen) => (
+					<Screen key={screen.name} {...screen} />
+				))}
 			</Navigator>
 		</NavigationContainer>
 	);

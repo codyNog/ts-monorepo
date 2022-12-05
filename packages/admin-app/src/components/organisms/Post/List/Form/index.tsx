@@ -5,12 +5,10 @@ import { AutoComplete, Label, Input, Button } from "@web/ui/components";
 import { MarginProps } from "@web/ui/components/style";
 import { usePostListForm } from "~/store/components/organisms/Post/List/Form";
 
-type FormProps =
-	& MarginProps
-	& {
-		parameter: GetPostsParameter;
-		submit: (parameter: GetPostsParameter) => void;
-	};
+type FormProps = MarginProps & {
+	parameter: GetPostsParameter;
+	submit: (parameter: GetPostsParameter) => void;
+};
 
 export const PostListForm = ({
 	parameter: parameterProps,

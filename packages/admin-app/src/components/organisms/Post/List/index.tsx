@@ -7,9 +7,11 @@ import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { GetPostsParameter } from "@my/shared/front/repositories/Post/types";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps =
-	& MarginProps
-	& { href?: string; post: Post; onClickDeleteButton: (post: Post) => void };
+type ItemProps = MarginProps & {
+	href?: string;
+	post: Post;
+	onClickDeleteButton: (post: Post) => void;
+};
 
 const Item = ({
 	href,
@@ -51,16 +53,14 @@ export const PostList = ({
 			<Scroll>
 				{!posts && <CenteredSpinner />}
 				{posts &&
-					posts.map(
-						(elem) => (
-							<Item
-								key={elem.uid}
-								href={href(elem.uid)}
-								post={elem}
-								onClickDeleteButton={onClickDeleteButton}
-							/>
-						),
-					)}
+					posts.map((elem) => (
+						<Item
+							key={elem.uid}
+							href={href(elem.uid)}
+							post={elem}
+							onClickDeleteButton={onClickDeleteButton}
+						/>
+					))}
 			</Scroll>
 		</VStack>
 	);

@@ -38,8 +38,8 @@ if (import.meta.vitest) {
 		});
 
 		it("初期状態", () => {
-			const { result } = renderHook(
-				() => useCategoryForm(mocks.category.category),
+			const { result } = renderHook(() =>
+				useCategoryForm(mocks.category.category),
 			);
 			expect<Category>(result.current.category).toStrictEqual<Category>(
 				mocks.category.category,

@@ -29,7 +29,8 @@
     "test:service": "pnpm --filter=./packages/service/** test",
     "test:shared": "pnpm --filter=./packages/shared/** test",
     "update-dependencies": "ncu -u && ncu -u --packageFile ./packages/api/package.json && ncu -u --packageFile ./packages/service/package.json",
-    "update-dependencies-check": "ncu && ncu --packageFile ./packages/api/package.json && ncu -u --packageFile ./packages/service/package.json"
+    "update-dependencies:all": "ncu -u && pnpm --filter=./** update-dependencies"
+
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.45.1",

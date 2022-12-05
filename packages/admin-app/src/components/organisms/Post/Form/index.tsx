@@ -53,13 +53,11 @@ export const PostForm = ({
 					/>
 				</Label>
 				<Box>
-					{post.categories.map(
-						(elem) => (
-							<Tag key={elem.uid} onClose={() => removeCategory(elem)}>
-								{elem.name}
-							</Tag>
-						),
-					)}
+					{post.categories.map((elem) => (
+						<Tag key={elem.uid} onClose={() => removeCategory(elem)}>
+							{elem.name}
+						</Tag>
+					))}
 				</Box>
 				<Button onClick={handleSubmit(submit)}>送信</Button>
 			</VStack>

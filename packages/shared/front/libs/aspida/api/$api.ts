@@ -162,9 +162,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					get: (
 						option?:
 							| {
-								query?: Methods1["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods1["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<
@@ -179,9 +179,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					$get: (
 						option?:
 							| {
-								query?: Methods1["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods1["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<
@@ -315,9 +315,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					get: (
 						option?:
 							| {
-								query?: Methods3["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods3["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<
@@ -332,9 +332,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					$get: (
 						option?:
 							| {
-								query?: Methods3["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods3["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<
@@ -468,9 +468,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					get: (
 						option?:
 							| {
-								query?: Methods5["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods5["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<
@@ -485,9 +485,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 					$get: (
 						option?:
 							| {
-								query?: Methods5["get"]["query"] | undefined;
-								config?: T | undefined;
-							}
+									query?: Methods5["get"]["query"] | undefined;
+									config?: T | undefined;
+							  }
 							| undefined,
 					) =>
 						fetch<

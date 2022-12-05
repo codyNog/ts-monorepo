@@ -5,12 +5,10 @@ import { MarginProps } from "@web/ui/components/style";
 import { useCategoryForm } from "~/store/components/organisms/Category/Form";
 import { Input } from "@chakra-ui/react";
 
-type Props =
-	& MarginProps
-	& {
-		category?: Category;
-		submit: (category: Category) => void;
-	};
+type Props = MarginProps & {
+	category?: Category;
+	submit: (category: Category) => void;
+};
 
 export const CategoryForm = ({
 	category: categoryProps,

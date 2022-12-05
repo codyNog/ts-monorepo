@@ -10,7 +10,8 @@
     "prisma-gen": "pnpm prisma generate",
     "sort": "sort-package-json package.json",
     "start": "node ./dist/index.js",
-    "test": "vitest run --silent"
+    "test": "vitest run --silent",
+    "update-dependencies": "ncu -u"
   },
   "dependencies": {
     "@anatine/zod-openapi": "1.10.0",

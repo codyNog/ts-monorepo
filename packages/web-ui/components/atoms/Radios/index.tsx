@@ -3,9 +3,11 @@ import { MarginProps } from "../../style";
 
 export type RadioOption<T> = { value: T; label: string };
 
-type Props<T> =
-	& MarginProps
-	& { value: T; options: RadioOption<T>[]; onChange: (value: T) => void };
+type Props<T> = MarginProps & {
+	value: T;
+	options: RadioOption<T>[];
+	onChange: (value: T) => void;
+};
 
 export const Radios = <T extends string | number>({
 	value,
@@ -20,13 +22,11 @@ export const Radios = <T extends string | number>({
 			{...marginProps}
 		>
 			<Stack spacing={2}>
-				{options.map(
-					({ value, label }) => (
-						<Radio key={label} value={value}>
-							{label}
-						</Radio>
-					),
-				)}
+				{options.map(({ value, label }) => (
+					<Radio key={label} value={value}>
+						{label}
+					</Radio>
+				))}
 			</Stack>
 		</RadioGroup>
 	);

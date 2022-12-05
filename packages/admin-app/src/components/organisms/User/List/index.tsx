@@ -6,9 +6,11 @@ import { UserListForm } from "~/components/organisms/User/List/Form";
 import { VStack, Flex, Scroll } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps =
-	& MarginProps
-	& { href?: string; user: User; onClickDeleteButton: (user: User) => void };
+type ItemProps = MarginProps & {
+	href?: string;
+	user: User;
+	onClickDeleteButton: (user: User) => void;
+};
 
 const Item = ({
 	href,
@@ -44,16 +46,14 @@ export const UserList = ({ href, ...marginProps }: Props): JSX.Element => {
 			<Scroll>
 				{!users && <CenteredSpinner />}
 				{users &&
-					users.map(
-						(elem) => (
-							<Item
-								key={elem.uid}
-								href={href(elem.uid)}
-								user={elem}
-								onClickDeleteButton={onClickDeleteButton}
-							/>
-						),
-					)}
+					users.map((elem) => (
+						<Item
+							key={elem.uid}
+							href={href(elem.uid)}
+							user={elem}
+							onClickDeleteButton={onClickDeleteButton}
+						/>
+					))}
 			</Scroll>
 		</VStack>
 	);

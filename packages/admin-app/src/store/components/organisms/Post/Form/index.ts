@@ -14,13 +14,11 @@ export const usePostForm = (postProps?: Post) => {
 
 	const onChangeCategoryInput = useCallback(async (name: string) => {
 		const options = await backend.category.getMany({ name });
-		return options.map(
-			(elem) => ({
-				...elem,
-				label: elem.name,
-				value: elem.uid,
-			}),
-		);
+		return options.map((elem) => ({
+			...elem,
+			label: elem.name,
+			value: elem.uid,
+		}));
 	}, []);
 
 	const addCategory = useCallback(

@@ -7,19 +7,20 @@
   "main": "index.js",
   "scripts": {
     "depcheck": "depcheck",
-    "sort": "sort-package-json package.json"
+    "sort": "sort-package-json package.json",
+    "update-dependencies": "ncu -u"
   },
   "dependencies": {
-    "native-base": "^3.4.5",
-    "react-native-safe-area-context": "^4.2.5",
-    "react-native-svg": "^12.3.0"
+    "native-base": "^3.4.25",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-svg": "^13.6.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.9",
-    "@types/react-native": "^0.67.7",
+    "@types/react": "^18.0.26",
+    "@types/react-native": "^0.70.7",
     "depcheck": "^1.4.3",
-    "react-dom": "^18.0.0",
-    "react-native": "0.68.2",
-    "sort-package-json": "1.57.0"
+    "react-dom": "^18.2.0",
+    "react-native": "0.70.6",
+    "sort-package-json": "2.1.0"
   }
 }

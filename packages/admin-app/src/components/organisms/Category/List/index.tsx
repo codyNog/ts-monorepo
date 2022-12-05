@@ -6,13 +6,11 @@ import { CategoryListForm } from "~/components/organisms/Category/List/Form";
 import { VStack, Scroll, Flex } from "@web/ui/components/layouts";
 import { Link } from "~/components/atoms/Link";
 
-type ItemProps =
-	& MarginProps
-	& {
-		href?: string;
-		category: Category;
-		onClickDeleteButton: (category: Category) => void;
-	};
+type ItemProps = MarginProps & {
+	href?: string;
+	category: Category;
+	onClickDeleteButton: (category: Category) => void;
+};
 
 const Item = ({
 	href,
@@ -48,16 +46,14 @@ export const CategoryList = ({ href, ...marginProps }: Props): JSX.Element => {
 			<Scroll>
 				{!categories && <CenteredSpinner />}
 				{categories &&
-					categories.map(
-						(elem) => (
-							<Item
-								key={elem.uid}
-								href={href(elem.uid)}
-								category={elem}
-								onClickDeleteButton={onClickDeleteButton}
-							/>
-						),
-					)}
+					categories.map((elem) => (
+						<Item
+							key={elem.uid}
+							href={href(elem.uid)}
+							category={elem}
+							onClickDeleteButton={onClickDeleteButton}
+						/>
+					))}
 			</Scroll>
 		</VStack>
 	);

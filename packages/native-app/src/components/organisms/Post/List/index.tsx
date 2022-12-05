@@ -27,11 +27,9 @@ export const PostList = ({ parameter: parameterProps }: Props): JSX.Element => {
 			{!posts && null}
 			{posts && (
 				<VStack space={2}>
-					{posts.map(
-						(elem) => (
-							<Item key={elem.uid} post={elem} />
-						),
-					)}
+					{posts.map((elem) => (
+						<Item key={elem.uid} post={elem} />
+					))}
 				</VStack>
 			)}
 		</Box>

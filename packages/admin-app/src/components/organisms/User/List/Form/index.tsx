@@ -4,12 +4,10 @@ import { Button, Input, Label } from "@web/ui/components";
 import { MarginProps } from "@web/ui/components/style";
 import { useUserListForm } from "~/store/components/organisms/User/List/Form";
 
-type FormProps =
-	& MarginProps
-	& {
-		parameter: GetUsersParameter;
-		submit: (parameter: GetUsersParameter) => void;
-	};
+type FormProps = MarginProps & {
+	parameter: GetUsersParameter;
+	submit: (parameter: GetUsersParameter) => void;
+};
 
 export const UserListForm = ({
 	parameter: parameterProps,

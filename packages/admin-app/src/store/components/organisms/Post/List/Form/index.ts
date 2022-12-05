@@ -22,21 +22,20 @@ export const usePostListForm = (parameterProps: GetPostsParameter) => {
 	const loadOptions = useCallback(async (name: string) => {
 		const users = await backend.user.getMany({ name });
 
-		return users.map(
-			(elem) => ({
-				...elem,
-				value: elem.uid,
-				label: elem.name,
-			}),
-		);
+		return users.map((elem) => ({
+			...elem,
+			value: elem.uid,
+			label: elem.name,
+		}));
 	}, []);
 
-	const clear = useCallback((
-		onSubmit: (parameter: GetPostsParameter) => void,
-	) => {
-		onSubmit({ ...initialState.getPostsParameter });
-		reset(initialState.getPostsParameter);
-	}, []);
+	const clear = useCallback(
+		(onSubmit: (parameter: GetPostsParameter) => void) => {
+			onSubmit({ ...initialState.getPostsParameter });
+			reset(initialState.getPostsParameter);
+		},
+		[],
+	);
 
 	return {
 		parameter,
