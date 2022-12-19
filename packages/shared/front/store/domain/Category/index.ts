@@ -45,7 +45,7 @@ export const useCategory = () => {
 if (env.NODE_ENV === "test" && import.meta.vitest) {
 	const { describe, it, expect, beforeAll } = import.meta.vitest;
 	const { mocks } = await import("../../../../mocks");
-	const { renderHook } = await import("@testing-library/react");
+	const { renderHook, waitFor } = await import("@testing-library/react");
 	const { startTestServer } = await import("../../../libs/msw");
 
 	const useTestHook = () => {
@@ -62,16 +62,16 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 		});
 
 		it("初期状態", async () => {
-			const { result, waitForNextUpdate } = renderHook(useTestHook);
+			const { result } = renderHook(useTestHook);
 			expect<Category[] | undefined>(result.current.categories).toStrictEqual<
 				Category[] | undefined
 			>(undefined);
 
-			await waitForNextUpdate();
-
-			expect<Category[] | undefined>(result.current.categories).toStrictEqual<
-				Category[] | undefined
-			>(mocks.category.categories);
+			await waitFor(() => {
+				expect<Category[] | undefined>(result.current.categories).toStrictEqual<
+					Category[] | undefined
+				>(mocks.category.categories);
+			});
 		});
 	});
 }
