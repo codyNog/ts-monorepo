@@ -20,8 +20,7 @@ export const useUserForm = (userProps?: User) => {
 	return { user, register, handleSubmit, onChangeBiography };
 };
 
-if (import.meta.vitest) {
-	const { describe, it, expect, beforeAll } = import.meta.vitest;
+if (process.env.NODE_ENV === "test" && import.meta.vitest) {
 	const { mocks } = await import("@my/shared/mocks");
 	const { renderHook } = await import("@testing-library/react");
 	const { startTestServer } = await import("@my/shared/front/libs/msw");

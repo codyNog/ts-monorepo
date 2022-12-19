@@ -65,8 +65,7 @@ export const PostForm = ({
 	);
 };
 
-if (import.meta.vitest) {
-	const { describe, it, expect } = import.meta.vitest;
+if (process.env.NODE_ENV === "test" && import.meta.vitest) {
 	const { render } = await import("@testing-library/react");
 
 	describe("PostForm", () => {
