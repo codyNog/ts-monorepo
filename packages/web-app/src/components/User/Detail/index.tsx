@@ -1,20 +1,21 @@
-import { User } from "@my/shared/entities/User";
 import { Avatar, Card } from "@web/ui/components";
 import { Box, Flex } from "@web/ui/components/layouts";
+import { useUserDetail } from "~/store/components/User/Detail";
 
-type Props = { user: User };
+type Props = { uid: string };
 
-export const UserDetail = ({ user }: Props): JSX.Element => {
-	const { name, profile } = user;
+export const UserDetail = ({ uid }: Props): JSX.Element => {
+  const { user } = useUserDetail(uid);
+  const { name, profile } = user!;
 
-	return (
-		<Card>
-			<Flex>{name}</Flex>
-			{profile && (
-				<Box>
-					<Avatar src={profile.biography} />
-				</Box>
-			)}
-		</Card>
-	);
+  return (
+    <Card>
+      <Flex>{name}</Flex>
+      {profile && (
+        <Box>
+          <Avatar src={profile.biography} />
+        </Box>
+      )}
+    </Card>
+  );
 };

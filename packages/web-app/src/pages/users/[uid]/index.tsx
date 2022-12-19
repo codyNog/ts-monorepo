@@ -1,14 +1,15 @@
+import { Suspense } from "react";
 import { UserDetail } from "~/components/User/Detail";
 import { useUserPage } from "~/store/pages/users/[uid]";
 
 const Component = () => {
-	const { user } = useUserPage();
+  const { uid } = useUserPage();
 
-	if (!user) {
-		return null;
-	}
-
-	return <UserDetail user={user} />;
+  return (
+    <Suspense>
+      <UserDetail uid={uid} />
+    </Suspense>
+  );
 };
 
 export default Component;

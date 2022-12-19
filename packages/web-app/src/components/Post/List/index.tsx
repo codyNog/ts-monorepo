@@ -5,18 +5,18 @@ import { usePostList } from "~/store/components/Post/List";
 
 type Props = { parameter?: GetPostsParameter };
 
-export const PostList = ({ parameter }: Props) => {
-	const { posts } = usePostList(parameter);
+export const PostList = ({ parameter = {} }: Props) => {
+  const { posts } = usePostList(parameter);
 
-	if (!posts) {
-		return null;
-	}
+  if (!posts) {
+    return null;
+  }
 
-	return (
-		<VStack>
-			{posts.map((elem) => (
-				<Card key={elem.uid}>{elem.title}</Card>
-			))}
-		</VStack>
-	);
+  return (
+    <VStack>
+      {posts.map((elem) => (
+        <Card key={elem.uid}>{elem.title}</Card>
+      ))}
+    </VStack>
+  );
 };
