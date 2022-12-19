@@ -1,13 +1,13 @@
 import SWR, { SWRConfiguration } from "swr";
 
 export const swrConfig: SWRConfiguration = {
-  revalidateOnFocus: false,
-  shouldRetryOnError: false,
-  suspense: true,
+	revalidateOnFocus: false,
+	shouldRetryOnError: false,
+	suspense: true,
 };
 
 export const useSWR = <T>(
-  key: string | string[] | null,
-  fetcher: () => Promise<T>,
-  config?: SWRConfiguration
+	key: string | string[] | null,
+	fetcher: () => Promise<T>,
+	config?: SWRConfiguration,
 ) => SWR<T>(key, fetcher, { ...swrConfig, ...config });

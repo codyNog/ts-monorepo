@@ -5,17 +5,17 @@ import { useUserDetail } from "~/store/components/User/Detail";
 type Props = { uid: string };
 
 export const UserDetail = ({ uid }: Props): JSX.Element => {
-  const { user } = useUserDetail(uid);
-  const { name, profile } = user!;
+	const { user } = useUserDetail(uid);
+	const { name, profile } = user!;
 
-  return (
-    <Card>
-      <Flex>{name}</Flex>
-      {profile && (
-        <Box>
-          <Avatar src={profile.biography} />
-        </Box>
-      )}
-    </Card>
-  );
+	return (
+		<Card>
+			<Flex>{name}</Flex>
+			{profile && (
+				<Box>
+					<Avatar src={profile.biography} />
+				</Box>
+			)}
+		</Card>
+	);
 };
