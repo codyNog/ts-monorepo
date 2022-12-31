@@ -45,9 +45,6 @@
     "rome": "10.0.1",
     "sort-package-json": "2.1.0"
   },
-  "engines": {
-    "pnpm": "7.18.0"
-  },
   "volta": {
     "node": "18.12.1"
   },

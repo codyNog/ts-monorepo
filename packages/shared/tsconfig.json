@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "ES2017",
-    "types": ["node", "vitest/importMeta"]
+    "types": ["node"]
   },
 }
 

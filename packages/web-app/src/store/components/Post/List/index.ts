@@ -23,9 +23,6 @@ if (env.NODE_ENV === "test" && import.meta.vitest) {
 
 		it("初期状態", async () => {
 			const { result } = renderHook(() => usePostList());
-			expect<Post[] | undefined>(result.current.posts).toStrictEqual<
-				Post[] | undefined
-			>(undefined);
 
 			await waitFor(() => {
 				expect<Post[] | undefined>(result.current.posts).toStrictEqual<
