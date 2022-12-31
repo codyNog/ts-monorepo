@@ -7,8 +7,8 @@ const config: AxiosRequestConfig = {
 	baseURL: "http://localhost:8080",
 	paramsSerializer: {
 		serialize: (params) => stringify(params, { arrayFormat: "brackets" }),
-	}
-}
+	},
+};
 
 export const httpClient = api(aspida(axios, config));
 export const v1Client = httpClient.api.v1;
